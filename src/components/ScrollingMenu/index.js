@@ -4,7 +4,7 @@ import { Wrapper } from "./style";
  
 // list of items
 const list = [
-  { name: 'package' },
+  { name: 'promos' },
   { name: 'vodka' },
   { name: 'whisky' },
   { name: 'rhum' },
@@ -12,9 +12,9 @@ const list = [
   { name: 'item6' },
   { name: 'item7' },
   { name: 'item8' },
-  { name: 'item8' },
-  { name: 'item8' },
-  { name: 'item9' }
+  { name: 'item9' },
+  { name: 'item10' },
+  { name: 'item11' }
 ];
  
 // One item component
@@ -31,7 +31,7 @@ export const Menu = (list, selected) =>
   list.map(el => {
     const {name} = el;
  
-    return <MenuItem text={name} key={name} selected={selected} />;
+    return <div className="menu-item" key={name}><MenuItem text={name} selected={selected} /></div>;
   });
  
  
@@ -47,7 +47,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
  
-const selected = 'item1';
+const selected = 'promos';
  
 class ScrollingMenu extends Component {
   constructor(props) {
