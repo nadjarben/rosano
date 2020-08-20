@@ -9,6 +9,13 @@ body {
   color: white;
 }
 
+a {
+  color: white
+}
+a:hover {
+  color: white
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -2,9 +2,9 @@ import React from 'react'
 
 const index = () => {
     return (
-        <div>
-            Contact
-        </div>
+      <div className="container">
+        Contact
+      </div>
     )
 }
 

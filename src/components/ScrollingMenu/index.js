@@ -9,7 +9,7 @@ const list = [
   { name: 'whisky' },
   { name: 'rhum' },
   { name: 'arak' },
-  { name: 'item6' },
+  { name: 'beer' },
   { name: 'item7' },
   { name: 'item8' },
   { name: 'item9' },

@@ -30,6 +30,7 @@ class NavbarPage extends Component {
           <MDBNavbarBrand>
             <Link to="/">
               <img src={logo} width="50px" alt="logo" />
+              <p>Rosano City Market</p>
             </Link>
           </MDBNavbarBrand>
           <MDBNavbarToggler style={{borderColor: "white"}} onClick={this.toggleCollapse} />
