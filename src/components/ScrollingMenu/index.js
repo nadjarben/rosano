@@ -63,6 +63,7 @@ class ScrollingMenu extends Component {
  
   onSelect = key => {
     this.setState({ selected: key });
+    store.dispatch({type: 'CHANGE_CATEGORY', payload: key})
   }
  
  
@@ -79,7 +80,6 @@ class ScrollingMenu extends Component {
           arrowRight={ArrowRight}
           selected={selected}
           onSelect={this.onSelect}
-          onClick={store.dispatch({type: 'CHANGE_CATEGORY', payload: selected})}
         />
       </Wrapper>
     );
