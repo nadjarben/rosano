@@ -8,5 +8,6 @@ export const Wrapper = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     font-family: 'Alef', sans-serif;
+    font-size: 20px;
   }
 `;

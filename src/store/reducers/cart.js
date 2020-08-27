@@ -4,7 +4,7 @@ const initState = {
   checkout: { lineItems: [] },
   products: [],
   shop: {},
-  category: "promo"
+  category: "promos"
 }
 
 // actions

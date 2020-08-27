@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { zoomInUp } from "react-animations";
 
 export const Wrapper = styled.div`
-    font-family: 'Alef', sans-serif;
+  font-family: 'Alef', sans-serif;
   text-transform: uppercase;
   font-size: 18px;
 
@@ -10,11 +10,30 @@ export const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
   }
+  .rosano {
+    font-weight: bold;
+    font-size: 16px;
+    font-family: 'Alef', sans-serif !important;
+  }
+  .s {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 2px;
+  }
+  .s2 {
+    font-size: 12px;
+    font-style: italic;
+    padding-right: 2px;
+  }
+  .city {
+    font-size: 12px;
+  }
 
   .shopping-cart {
     position: absolute;
     right: 80px;
-    top: 16px;
+    top: 19px;
     z-index: 1000;
     cursor: pointer;
   }
