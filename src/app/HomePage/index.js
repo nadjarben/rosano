@@ -9,6 +9,9 @@ const Homepage = () => {
       <ScrollingMenu />
       <Divider />
       <GenericProductsPage />
+      <br/>
+      <br/>
+      <br/>
     </>
   );
 };

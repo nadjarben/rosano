@@ -41,9 +41,11 @@ class NavbarPage extends Component {
                   alt="logo rosano"
                 />
               </BouncyDiv>
+              <span style={{textDecoration: "underline"}}>
               <span className="rosano">Ro</span>
               <span className="s">s</span>
               <span className="rosano">ano</span>
+              </span>
               <span className="s2">'s </span>
               <span className="city">City Market</span>
             </Link>

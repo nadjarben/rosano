@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   }
 
   img {
-    height: 200px;
+    height: 150px;
     display: block;
     margin-left: auto;
     margin-right: auto;

@@ -13,9 +13,6 @@ const list = [
   { name: 'beer' },
   { name: 'snack' },
   { name: 'soft drink' },
-  { name: 'other' },
-  { name: 'item10' },
-  { name: 'item11' }
 ];
  
 // One item component

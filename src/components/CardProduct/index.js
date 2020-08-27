@@ -64,9 +64,9 @@ class Product extends Component {
     //let variantQuantity = this.state.selectedVariantQuantity || 1;
     return (
       <Wrapper>
-        <Card style={{ borderRadius: "10px", minHeight: "350px" }}> 
+        <Card style={{ borderRadius: "10px" }}> 
           <CardActionArea>
-            <CardMedia style={{ marginTop: "25px" }}>
+            <CardMedia style={{ marginTop: "20px" }}>
               {this.props.product.images.length ? (
                 <img
                   src={variantImage.src}
@@ -75,7 +75,7 @@ class Product extends Component {
               ) : null}
             </CardMedia>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" style={{minHeight: "40px"}}>
                 {this.props.product.title}
               </Typography>
               <Typography className="text-description" variant="h6" component="p">
