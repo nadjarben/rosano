@@ -8,11 +8,11 @@ import {
   MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBFormInline,
 } from "mdbreact";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../../assets/logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { Wrapper, MDBNavItemStyled } from "./style";
+import { Wrapper, BouncyDiv } from "./style";
 
 class NavbarPage extends Component {
   state = {
@@ -26,14 +26,22 @@ class NavbarPage extends Component {
   render() {
     return (
       <Wrapper>
-        <MDBNavbar color="indigo" dark expand="md">
+        <div className="shopping-cart" onClick={this.props.handleCartOpen}>
+          <ShoppingCartIcon
+            fontSize="large"
+          />
+        </div>
+        <MDBNavbar dark expand="md">
           <MDBNavbarBrand>
             <Link to="/">
-              <img src={logo} width="50px" alt="logo" />
+              <BouncyDiv><img className="logo" src={logo} width="50px" alt="logo rosano" /></BouncyDiv>
               <p>Rosano City Market</p>
             </Link>
           </MDBNavbarBrand>
-          <MDBNavbarToggler style={{borderColor: "white"}} onClick={this.toggleCollapse} />
+          <MDBNavbarToggler
+            style={{ borderColor: "white" }}
+            onClick={this.toggleCollapse}
+          />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <LanguageSwitcher />
             <MDBNavbarNav left onClick={this.toggleCollapse}>
@@ -46,20 +54,6 @@ class NavbarPage extends Component {
               <MDBNavItem>
                 <MDBNavLink to="/pricing">Pricing</MDBNavLink>
               </MDBNavItem>
-            </MDBNavbarNav>
-            <MDBNavbarNav right>
-              <MDBNavItemStyled>
-                <MDBFormInline waves>
-                  <div className="md-form my-0">
-                    <input
-                      className="form-control mr-sm-2"
-                      type="text"
-                      placeholder="Search"
-                      aria-label="Search"
-                    />
-                  </div>
-                </MDBFormInline>
-              </MDBNavItemStyled>
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>

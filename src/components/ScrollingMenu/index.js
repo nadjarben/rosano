@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import store from "../../store/store";
 import ScrollMenu  from 'react-horizontal-scrolling-menu';
 import { Wrapper } from "./style";
  
@@ -6,7 +7,7 @@ import { Wrapper } from "./style";
 const list = [
   { name: 'promos' },
   { name: 'vodka' },
-  { name: 'whisky' },
+  { name: 'whiskey' },
   { name: 'rhum' },
   { name: 'arak' },
   { name: 'beer' },
@@ -78,6 +79,7 @@ class ScrollingMenu extends Component {
           arrowRight={ArrowRight}
           selected={selected}
           onSelect={this.onSelect}
+          onClick={store.dispatch({type: 'CHANGE_CATEGORY', payload: selected})}
         />
       </Wrapper>
     );
