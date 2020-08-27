@@ -12,22 +12,22 @@ export const Wrapper = styled.div`
   }
   .rosano {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Alef', sans-serif !important;
   }
   .s {
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
     font-weight: bold;
     padding-right: 2px;
   }
   .s2 {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     padding-right: 2px;
   }
   .city {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .shopping-cart {
