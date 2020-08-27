@@ -19,7 +19,7 @@ class GenericProductsPage extends React.Component {
       .then((res) => {
         store.dispatch({
           type: "ADD_VARIANT_TO_CART",
-          payload: { isCartOpen: true, checkout: res },
+          payload: { checkout: res },
         });
       });
   }
@@ -28,7 +28,6 @@ class GenericProductsPage extends React.Component {
     const capitalizeFirstLetter = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
     };
-    console.log(this.props);
     const state = store.getState(); // state from redux store
     let oProducts = (
       <Products

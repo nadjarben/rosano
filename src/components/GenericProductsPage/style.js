@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   h1 {
     background-color: white;
     color: black;
-    padding: 10px;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Alef', sans-serif;
   }
 `;

@@ -85,7 +85,7 @@ class Product extends Component {
                 {variant.compareAtPrice && (
                   <Typography
                     className="text-line-through"
-                    variant="h5"
+                    variant="h6"
                     component="p"
                   >
                     ₪{variant.compareAtPrice}

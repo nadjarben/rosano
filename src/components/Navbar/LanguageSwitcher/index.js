@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
   },
   label: {
     marginLeft: "5px",
-    marginTop: "0px"
+    marginTop: "5px",
+    fontSize: "15px"
   }
 }));
 

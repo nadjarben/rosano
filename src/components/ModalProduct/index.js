@@ -8,7 +8,7 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import { ImageStyled } from "./style";
+import { ImageStyled, InputStyled } from "./style";
 import CardProduct from "../CardProduct";
 
 //const ONE_SIZE_FITS_MOST = "One Size Fits Most";
@@ -16,14 +16,23 @@ import CardProduct from "../CardProduct";
 const styles = (theme) => ({
   root: {
     margin: 0,
+    color: "white",
+    backgroundColor: "black",
     width: 500,
     padding: theme.spacing(2),
   },
+  title: {
+    fontSize: "20px",
+    fontWeight: "bold",
+    fontFamily: 'Alef',
+
+  },
   closeButton: {
+    fontSize: "40px",
     position: 'absolute',
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: theme.palette.grey[500],
+    color: "white",
   },
 });
 
@@ -31,14 +40,14 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography className={classes.title} variant="h6">{children}</Typography>
       {onClose ? (
         <IconButton
           aria-label="close"
           className={classes.closeButton}
           onClick={onClose}
         >
-          <CloseIcon />
+          <CloseIcon fontSize="large" />
         </IconButton>
       ) : null}
     </MuiDialogTitle>
@@ -148,21 +157,21 @@ class Product extends Component {
                 alt={`${this.props.product.title} product shot`}
               />
             ) : null}
-            <Typography gutterBottom>
+            <Typography variant="h5" gutterBottom>
               {this.props.product.description}
             </Typography>
-            <Typography gutterBottom>₪{variant.price}</Typography>
+            <Typography variant="h5" gutterBottom>₪{variant.price}</Typography>
           </DialogContent>
           <DialogActions>
             <label className="Product__option">
               Quantity:{" "}
-              <input
+              <InputStyled
                 className="form-control"
                 min="1"
                 type="number"
                 defaultValue={variantQuantity}
                 onChange={this.handleQuantityChange}
-              ></input>
+              />
             </label>
           </DialogActions>
           <DialogActions>

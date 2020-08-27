@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import Cart from "../components/shopify/Cart";
 import store from "../store/store";
 
-import HomePage from "../app/HomePage"
+import HomePage from "../app/HomePage";
 import Contact from "../app/Contact";
 import Navbar from "../components/Navbar";
-import LogoSpinner from "../components/LogoSpinner"
+import LogoSpinner from "../components/LogoSpinner";
 
 class App extends Component {
   constructor() {
@@ -57,7 +57,10 @@ class App extends Component {
       <Suspense fallback={<LogoSpinner />}>
         <Router>
           <div className="App">
-            <Navbar handleCartOpen={this.handleCartOpen} />
+            <Navbar
+              handleCartOpen={this.handleCartOpen}
+              checkout={state.checkout}
+            />
             <Cart
               checkout={state.checkout}
               isCartOpen={state.isCartOpen}
@@ -66,8 +69,8 @@ class App extends Component {
               removeLineItemInCart={this.removeLineItemInCart}
             />
             <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/contact" component={Contact} />
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/contact" component={Contact} />
             </Switch>
           </div>
         </Router>

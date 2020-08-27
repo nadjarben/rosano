@@ -9,10 +9,11 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
 } from "mdbreact";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+//import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../../assets/logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Wrapper, BouncyDiv } from "./style";
+import TotalCart from "./TotalCart";
 
 class NavbarPage extends Component {
   state = {
@@ -27,19 +28,24 @@ class NavbarPage extends Component {
     return (
       <Wrapper>
         <div className="shopping-cart" onClick={this.props.handleCartOpen}>
-          <ShoppingCartIcon
-            fontSize="large"
-          />
+          <TotalCart checkout={this.props.checkout} />
         </div>
         <MDBNavbar dark expand="md">
           <MDBNavbarBrand>
             <Link to="/">
-              <BouncyDiv><img className="logo" src={logo} width="50px" alt="logo rosano" /></BouncyDiv>
-              <p>Rosano City Market</p>
+              <BouncyDiv>
+                <img
+                  className="logo"
+                  src={logo}
+                  width="50px"
+                  alt="logo rosano"
+                />
+              </BouncyDiv>
+              Rosano City Market
             </Link>
           </MDBNavbarBrand>
           <MDBNavbarToggler
-            style={{ borderColor: "white" }}
+            style={{ borderColor: "white", color: "red !important" }}
             onClick={this.toggleCollapse}
           />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>

@@ -11,9 +11,9 @@ const list = [
   { name: 'rhum' },
   { name: 'arak' },
   { name: 'beer' },
-  { name: 'item7' },
-  { name: 'item8' },
-  { name: 'item9' },
+  { name: 'snack' },
+  { name: 'soft drink' },
+  { name: 'other' },
   { name: 'item10' },
   { name: 'item11' }
 ];

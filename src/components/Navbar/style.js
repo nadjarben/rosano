@@ -2,7 +2,9 @@ import styled, { keyframes } from "styled-components";
 import { zoomInUp } from "react-animations";
 
 export const Wrapper = styled.div`
+    font-family: 'Alef', sans-serif;
   text-transform: uppercase;
+  font-size: 18px;
 
   .logo {
     margin-left: auto;
@@ -12,7 +14,7 @@ export const Wrapper = styled.div`
   .shopping-cart {
     position: absolute;
     right: 80px;
-    top: 38px;
+    top: 16px;
     z-index: 1000;
     cursor: pointer;
   }
