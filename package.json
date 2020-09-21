@@ -9,6 +9,7 @@
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.18",
     "mdbreact": "^4.27.0",
+    "netlify-lambda": "^2.0.1",
     "react": "^16.6.0",
     "react-animations": "^1.0.0",
     "react-dom": "^16.6.0",
@@ -20,13 +21,16 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "shopify-buy": "^1.9.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "twilio": "^3.49.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions"
   },
   "eslintConfig": {
     "extends": "react-app"
