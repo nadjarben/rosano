@@ -1,8 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import { zoomInUp } from "react-animations";
+import {
+  MDBCollapse,
+} from "mdbreact";
 
 export const Wrapper = styled.div`
-  font-family: 'Alef', sans-serif;
+  font-family: "Arimo", sans-serif;
   text-transform: uppercase;
   font-size: 18px;
 
@@ -38,6 +41,11 @@ export const Wrapper = styled.div`
     cursor: pointer;
   }
 `;
+
+export const MDBCollapseStyled = styled(MDBCollapse)`
+  text-align: center;
+`
+
 
 export const LanguageWrapper = styled.div`
   position: absolute;

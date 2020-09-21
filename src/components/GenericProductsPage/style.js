@@ -7,8 +7,10 @@ export const Wrapper = styled.div`
     padding: 15px;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: 'Alef', sans-serif;
-    font-size: 20px;
+    font-family: "Arimo", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.02857em;
+    font-weight: bold;
     text-align: center;
   }
 `;

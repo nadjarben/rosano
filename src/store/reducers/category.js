@@ -1,6 +1,6 @@
 // initial state
 const initState = {
-    category: "promos"
+    category: "package"
   }
   
   // actions

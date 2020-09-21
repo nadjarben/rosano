@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import flagen from "../../../assets/flags/flag-en.png";
 import flagfr from "../../../assets/flags/flag-fr.png";
+import flaghe from "../../../assets/flags/flag-he.png";
 import { withStyles } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   label: {
-    marginLeft: "5px",
+    marginLeft: "8px",
     marginTop: "5px",
     fontSize: "15px"
   }
@@ -85,7 +86,7 @@ const LocaleSwitcher = ({ t, lang }) => {
           <img src={flagfr} alt="flagfr" width="30px" />
         )}
         {i18n.language === "he" && (
-          <img src={flagen} alt="flagen" width="30px" />
+          <img src={flaghe} alt="flagen" width="30px" />
         )}
       </Button>
       <StyledMenu
@@ -98,6 +99,13 @@ const LocaleSwitcher = ({ t, lang }) => {
       >
         <div className={classes.div}>
         <Divider />
+        <ListItem className={classes.item}>
+            <div onClick={() => changeLanguage("he")} className={classes.item}>
+              <img src={flaghe} alt="flaghe" width="30px" height="30px" />
+              <p className={classes.label}>עברית</p>
+            </div>
+          </ListItem>
+          <Divider />
           <ListItem className={classes.item}>
             <div onClick={() => changeLanguage("en")} className={classes.item}>
               <img src={flagen} alt="flagen" width="30px" height="30px" />

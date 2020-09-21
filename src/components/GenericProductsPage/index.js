@@ -1,7 +1,9 @@
 import React from "react";
+import { withTranslation } from 'react-i18next';
 import Container from "@material-ui/core/Container";
 import Products from "../shopify/Products";
 import { connect } from "react-redux";
+import { compose } from 'redux';
 import { Wrapper } from "./style";
 import store from "../../store/store";
 
@@ -39,11 +41,12 @@ class GenericProductsPage extends React.Component {
     );
     return (
       <Wrapper>
-        <h1>{capitalizeFirstLetter(this.props.category)}</h1>
+        <h1>{capitalizeFirstLetter(this.props.t(this.props.category))}</h1>
         <Container>{oProducts}</Container>
       </Wrapper>
     );
   }
 }
 
-export default connect((state) => state)(GenericProductsPage);
+export default compose(withTranslation(), connect((state) => state))(GenericProductsPage);
+

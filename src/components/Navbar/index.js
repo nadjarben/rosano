@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useTranslation } from 'react-i18next'
 import { Link } from "react-router-dom";
 import {
   MDBNavbar,
@@ -6,29 +7,25 @@ import {
   MDBNavbarNav,
   MDBNavItem,
   MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
+  MDBNavbarToggler
 } from "mdbreact";
-//import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../../assets/logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { Wrapper, BouncyDiv } from "./style";
+import { Wrapper, MDBCollapseStyled, BouncyDiv } from "./style";
 import TotalCart from "./TotalCart";
 
-class NavbarPage extends Component {
-  state = {
-    isOpen: false,
+const NavbarPage = (props) => {
+  const { t } = useTranslation()
+  const [state, setState] = React.useState(false)
+ 
+  const toggleCollapse = () => {
+    setState({ isOpen: !state.isOpen });
   };
 
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-
-  render() {
     return (
       <Wrapper>
-        <div className="shopping-cart" onClick={this.props.handleCartOpen}>
-          <TotalCart checkout={this.props.checkout} />
+        <div className="shopping-cart" onClick={props.handleCartOpen}>
+          <TotalCart checkout={props.checkout} />
         </div>
         <MDBNavbar dark expand="md">
           <MDBNavbarBrand>
@@ -52,26 +49,22 @@ class NavbarPage extends Component {
           </MDBNavbarBrand>
           <MDBNavbarToggler
             style={{ borderColor: "white", color: "red !important" }}
-            onClick={this.toggleCollapse}
+            onClick={toggleCollapse}
           />
-          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+          <MDBCollapseStyled id="navbarCollapse3" isOpen={state.isOpen} navbar>
             <LanguageSwitcher />
-            <MDBNavbarNav left onClick={this.toggleCollapse}>
+            <MDBNavbarNav left onClick={toggleCollapse}>
               <MDBNavItem active>
-                <MDBNavLink to="/">Home</MDBNavLink>
+                <MDBNavLink to="/">{t("home")}</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to="/contact">Contact</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/pricing">Pricing</MDBNavLink>
+                <MDBNavLink to="/contact">{t("contact")}</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
-          </MDBCollapse>
+          </MDBCollapseStyled>
         </MDBNavbar>
       </Wrapper>
     );
-  }
 }
 
 export default NavbarPage;
