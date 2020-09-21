@@ -1,12 +1,12 @@
 import React from "react";
 import Divider from "@material-ui/core/Divider";
-import ScrollingMenu from "../../components/ScrollingMenu";
+import ScrollingBar from "../../components/ScrollingBar";
 import GenericProductsPage from "../../components/GenericProductsPage";
 
 const Homepage = () => {
   return (
     <>
-      <ScrollingMenu />
+      <ScrollingBar />
       <Divider />
       <GenericProductsPage />
       <br/>
