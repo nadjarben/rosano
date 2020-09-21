@@ -4,13 +4,13 @@ const {
   TWILIO_ACCOUNT_SID,
   TWILIO_AUTH_TOKEN,
   CONTACT_NUMBERS,
-  BOT_NUMBER,
-  BOT_MESSAGE
+  BOT_NUMBER
 } = process.env;
 
 const client = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 exports.handler = function(event, context, callback) {
+  const { bodyMessage } = JSON.parse(event.body);
   Promise.all(
     // split the string of several messages into single numbers
     // send message to each of them
@@ -18,7 +18,7 @@ exports.handler = function(event, context, callback) {
       return client.messages.create({
         from: BOT_NUMBER,
         to: num,
-        body: BOT_MESSAGE
+        body: bodyMessage
       });
     })
   )

@@ -9,6 +9,7 @@ import HomePage from "../app/HomePage";
 import Contact from "../app/Contact";
 import Navbar from "../components/Navbar";
 import LogoSpinner from "../components/LogoSpinner";
+import TwilioOrder from "../components/TwilioOrder"
 
 class App extends Component {
   constructor() {
@@ -68,6 +69,7 @@ class App extends Component {
               updateQuantityInCart={this.updateQuantityInCart}
               removeLineItemInCart={this.removeLineItemInCart}
             />
+            <TwilioOrder />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/contact" component={Contact} />
