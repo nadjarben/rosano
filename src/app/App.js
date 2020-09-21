@@ -9,7 +9,7 @@ import HomePage from "../app/HomePage";
 import Contact from "../app/Contact";
 import Navbar from "../components/Navbar";
 import LogoSpinner from "../components/LogoSpinner";
-import TwilioOrder from "../components/TwilioOrder"
+import TwilioOrder from "../components/TwilioOrder";
 
 class App extends Component {
   constructor() {
@@ -57,7 +57,6 @@ class App extends Component {
     return (
       <Suspense fallback={<LogoSpinner />}>
         <Router>
-          <div className="App">
             <Navbar
               handleCartOpen={this.handleCartOpen}
               checkout={state.checkout}
@@ -74,7 +73,6 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route exact path="/contact" component={Contact} />
             </Switch>
-          </div>
         </Router>
       </Suspense>
     );

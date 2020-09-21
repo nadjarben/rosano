@@ -9,5 +9,6 @@ export const Wrapper = styled.div`
     font-weight: bold;
     font-family: 'Alef', sans-serif;
     font-size: 20px;
+    text-align: center;
   }
 `;
