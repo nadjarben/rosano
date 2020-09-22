@@ -19,7 +19,8 @@ export const Background = styled.div`
     font-family: "Arimo", sans-serif;
     font-weight: bold;
     color: white;
-    text-align: "center"
+    text-align: "center";
+    font-size: 14px;
   }
   .add-btn {
     color: white;
@@ -38,5 +39,5 @@ export const ImageStyled = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 250px;
+  height: 230px;
 `;

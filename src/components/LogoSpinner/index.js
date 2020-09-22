@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo-svg.svg"
+import logo from "../../assets/logo.png"
 import { Wrapper, LogoStyled} from "./style"
 
 const LogoSpinner = (props) => {

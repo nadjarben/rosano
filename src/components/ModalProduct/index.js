@@ -17,8 +17,7 @@ const styles = (theme, props) => ({
     margin: 0,
     color: "black",
     backgroundColor: "white",
-    minWidth: 350,
-    padding: theme.spacing(2),
+    minWidth: 350
   },
   title: {
     fontSize: "20px",
@@ -70,7 +69,7 @@ const DialogActionsStyled = withStyles((theme) => ({
   root: {
     margin: "auto",
     width: "30%",
-    padding: "10px",
+    marginTop: "-25px"
   },
 }))(MuiDialogActions);
 
