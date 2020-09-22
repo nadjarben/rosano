@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { rollIn } from "react-animations";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -26,4 +27,9 @@ export const TabStyled = styled(Tab)`
   color: black !important;
   font-family: "Arimo", sans-serif;
   font-weight: bold !important;
+`;
+
+const rollInAnimation = keyframes`${rollIn}`;
+export const RollInDiv = styled.div`
+  animation: 1.5s ${rollInAnimation};
 `;

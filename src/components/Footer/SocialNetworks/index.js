@@ -5,7 +5,6 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import ShareIcon from '@material-ui/icons/Share';
 import RoomIcon from '@material-ui/icons/Room'
-import Divider from "@material-ui/core/Divider";
 import { Wrapper } from "./style";
 
 const SocialNetworks = () => {
@@ -29,7 +28,6 @@ const SocialNetworks = () => {
       <IconButton onClick={shareButton} edge="start" color="inherit" aria-label="menu" className="icon-share">
         <ShareIcon style={{ fontSize: "30px" }} />
       </IconButton>
-      <Divider />
     </Wrapper>
   );
 };

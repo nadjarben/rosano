@@ -61,5 +61,5 @@ export const LanguageWrapper = styled.div`
 const bounceAnimation = keyframes`${zoomInUp}`;
 
 export const BouncyDiv = styled.div`
-  animation: 2s ${bounceAnimation};
+  animation: 3s ${bounceAnimation};
 `;
