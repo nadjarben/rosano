@@ -10,15 +10,14 @@ const splitTitle = (title) => {
 
 
 const TwilioOrder = () => {
-  //const order = useSelector((state) => state.checkout);
-  //const itemsName = order.lineItems.reduce(
-    //(prevValue, currentValue) => prevValue + splitTitle(currentValue.title) + " --> " +currentValue.quantity + "\n",
-    //""
-  //);
-  //const totalPrice = order.totalPrice;
-  //const bodyMessage = itemsName + "\n" + totalPrice;
-  const bodyMessage = "test"
-  //console.log(bodyMessage)
+  const order = useSelector((state) => state.checkout);
+  const itemsName = order.lineItems.reduce(
+    (prevValue, currentValue) => prevValue + splitTitle(currentValue.title) + " --> " +currentValue.quantity + "\n",
+    ""
+  );
+  const totalPrice = order.totalPrice;
+  const bodyMessage = itemsName + "\n" + totalPrice;
+  console.log(bodyMessage)
 
   const handleOrderRequest = () => {
     axios
