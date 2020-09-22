@@ -5,6 +5,7 @@ import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
+import Button from '@material-ui/core/Button';
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
@@ -14,8 +15,8 @@ import CardProduct from "../CardProduct";
 const styles = (theme, props) => ({
   root: {
     margin: 0,
-    color: "white",
-    backgroundColor: "black",
+    color: "black",
+    backgroundColor: "white",
     minWidth: 350,
     padding: theme.spacing(2),
   },
@@ -28,7 +29,7 @@ const styles = (theme, props) => ({
     position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: "white",
+    color: "black",
   },
 });
 
@@ -68,7 +69,7 @@ const DialogActions = withStyles((theme) => ({
 const DialogActionsStyled = withStyles((theme) => ({
   root: {
     margin: "auto",
-  width: "20%",
+  width: "30%",
   padding: "10px"
   },
 }))(MuiDialogActions);
@@ -169,6 +170,12 @@ class Product extends Component {
           onClose={handleClose}
           aria-labelledby="customized-dialog-title"
           open={this.state.open}
+          BackdropProps={{
+            style: {
+              backgroundColor: "white",
+              opacity: "0.9",
+            }
+          }}
         >
           <Background>
             {splitTitle()}
@@ -213,9 +220,9 @@ class Product extends Component {
               </label>
             </DialogActionsStyled>
             <DialogActions>
-              <button className="Product__buy button" onClick={addProduct}>
-                Add to Cart
-              </button>
+              <Button onClick={addProduct} variant="outlined" className="add-btn">
+                {this.props.t("Add to Cart")}
+              </Button>
             </DialogActions>
           </Background>
         </Dialog>

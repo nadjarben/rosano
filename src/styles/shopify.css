@@ -353,6 +353,12 @@ h2 {
   cursor: pointer;
 }
 
+.line-item-pic {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;;
+}
+
 /* PRODUCTS
  * ============================== */
 .Product {

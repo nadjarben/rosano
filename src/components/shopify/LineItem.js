@@ -26,6 +26,7 @@ class LineItem extends Component {
             <img
               src={this.props.line_item.variant.image.src}
               alt={`${this.props.line_item.title} product shot`}
+              className="line-item-pic"
             />
           ) : null}
         </div>

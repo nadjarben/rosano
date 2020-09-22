@@ -21,6 +21,12 @@ export const Background = styled.div`
     color: white;
     text-align: "center"
   }
+  .add-btn {
+    color: white;
+    border-color: white;
+    font-size: 13px;
+    font-weight: bold;
+  }
 `;
 
 export const InputStyled = styled.input`
