@@ -16,10 +16,10 @@ import TotalCart from "./TotalCart";
 
 const NavbarPage = (props) => {
   const { t } = useTranslation()
-  const [state, setState] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
  
   const toggleCollapse = () => {
-    setState({ isOpen: !state.isOpen });
+    setIsOpen(!isOpen);
   };
 
     return (
@@ -34,7 +34,7 @@ const NavbarPage = (props) => {
                 <img
                   className="logo"
                   src={logo}
-                  width="50px"
+                  width="100px"
                   alt="logo rosano"
                 />
               </BouncyDiv>
@@ -51,8 +51,8 @@ const NavbarPage = (props) => {
             style={{ borderColor: "white", color: "red !important" }}
             onClick={toggleCollapse}
           />
-          <MDBCollapseStyled id="navbarCollapse3" isOpen={state.isOpen} navbar>
-            <LanguageSwitcher />
+          <MDBCollapseStyled id="navbarCollapse3" isOpen={isOpen} navbar>
+            <LanguageSwitcher toggleCollapse={toggleCollapse} />
             <MDBNavbarNav left onClick={toggleCollapse}>
               <MDBNavItem active>
                 <MDBNavLink to="/">{t("home")}</MDBNavLink>

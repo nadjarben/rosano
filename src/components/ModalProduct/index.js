@@ -5,7 +5,7 @@ import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
@@ -69,8 +69,8 @@ const DialogActions = withStyles((theme) => ({
 const DialogActionsStyled = withStyles((theme) => ({
   root: {
     margin: "auto",
-  width: "30%",
-  padding: "10px"
+    width: "30%",
+    padding: "10px",
   },
 }))(MuiDialogActions);
 
@@ -138,23 +138,13 @@ class Product extends Component {
       handleClose();
     };
 
-    const splitTitle = () => {
-      const titleSplitted = this.props.product.title.split(" - ");
-      return this.props.i18n.language === "he" ? (
-        <DialogTitle
-          onClose={() => this.setState({ open: false })}
-          style={{ textAlign: "center" }}
-        >
-          {titleSplitted[0]}
-        </DialogTitle>
-      ) : (
-        <DialogTitle
-          onClose={() => this.setState({ open: false })}
-          style={{ textAlign: "center" }}
-        >
-          {titleSplitted[1]}
-        </DialogTitle>
-      );
+    const splitTitle = (title) => {
+      const titleSplitted = title.split(" - ");
+      return titleSplitted[1]
+        ? this.props.i18n.language === "he"
+          ? titleSplitted[0]
+          : titleSplitted[1]
+        : titleSplitted;
     };
 
     let variantImage =
@@ -174,11 +164,16 @@ class Product extends Component {
             style: {
               backgroundColor: "white",
               opacity: "0.9",
-            }
+            },
           }}
         >
           <Background>
-            {splitTitle()}
+            <DialogTitle
+              onClose={() => this.setState({ open: false })}
+              style={{ textAlign: "center" }}
+            >
+              {splitTitle(this.props.product.title)}
+            </DialogTitle>
             <DialogContent dividers>
               {this.props.product.images.length ? (
                 <ImageStyled
@@ -186,6 +181,7 @@ class Product extends Component {
                   alt={`${this.props.product.title} product shot`}
                 />
               ) : null}
+              <br />
               <Typography
                 style={{ textAlign: "center" }}
                 variant="h5"
@@ -195,11 +191,12 @@ class Product extends Component {
                 {this.props.product.description}
               </Typography>
               <Typography
-                style={{ textAlign: "center",
-                margin: "auto",
-                width: "20%",
-                padding: "10px"              
-              }}
+                style={{
+                  textAlign: "center",
+                  margin: "auto",
+                  width: "20%",
+                  padding: "10px",
+                }}
                 variant="h5"
                 gutterBottom
                 className="product-info"
@@ -220,7 +217,11 @@ class Product extends Component {
               </label>
             </DialogActionsStyled>
             <DialogActions>
-              <Button onClick={addProduct} variant="outlined" className="add-btn">
+              <Button
+                onClick={addProduct}
+                variant="outlined"
+                className="add-btn"
+              >
                 {this.props.t("Add to Cart")}
               </Button>
             </DialogActions>

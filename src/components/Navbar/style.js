@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   text-transform: uppercase;
   font-size: 18px;
 
+  .navbar-toggler:focus {
+    outline: 1px black;
+  }
+
   .logo {
     margin-left: auto;
     margin-right: auto;

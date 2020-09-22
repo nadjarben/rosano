@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const LocaleSwitcher = ({ t, lang }) => {
+const LocaleSwitcher = ({ t, lang, toggleCollapse }) => {
   const { i18n } = useTranslation();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -66,6 +66,7 @@ const LocaleSwitcher = ({ t, lang }) => {
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
     handleClose();
+    toggleCollapse();
   };
 
   return (

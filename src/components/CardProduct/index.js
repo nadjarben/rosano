@@ -60,9 +60,8 @@ class Product extends Component {
   }
 
   splitTitle(title){
-    console.log(this.props.i18n.language, "test")
     const titleSplitted = title.split(" - ")
-    return this.props.i18n.language === "he" ? titleSplitted[0] : titleSplitted[1]
+    return titleSplitted[1] ? this.props.i18n.language === "he" ? titleSplitted[0] : titleSplitted[1] : titleSplitted
   }
 
   render() {

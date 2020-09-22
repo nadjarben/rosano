@@ -8,6 +8,7 @@ export const AppBarStyled = styled(AppBar)`
 
   .Mui-selected {
     background-color: rgb(25, 25, 25);
+    outline: 1px black;
     color: white !important;
     padding: 15px !important;
   }

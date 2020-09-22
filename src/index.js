@@ -22,7 +22,6 @@ client.product.fetchAll().then((res) => {
 });
 client.checkout.create().then((res) => {
   store.dispatch({type: 'CHECKOUT_FOUND', payload: res});
-  console.log(res)
 });
 client.shop.fetchInfo().then((res) => {
   store.dispatch({type: 'SHOP_FOUND', payload: res});
