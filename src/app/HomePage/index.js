@@ -9,9 +9,9 @@ const Homepage = () => {
       <ScrollingBar />
       <Divider />
       <GenericProductsPage />
-      <br/>
-      <br/>
-      <br/>
+      <br />
+      <br />
+      <br />
     </>
   );
 };

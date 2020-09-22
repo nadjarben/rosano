@@ -2,22 +2,25 @@ import React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-
 const splitTitle = (title) => {
-  const titleSplitted = title.split(" - ")
-  return titleSplitted[1] ? titleSplitted[1] : title
-}
-
+  const titleSplitted = title.split(" - ");
+  return titleSplitted[1] ? titleSplitted[1] : title;
+};
 
 const TwilioOrder = () => {
   const order = useSelector((state) => state.checkout);
   const itemsName = order.lineItems.reduce(
-    (prevValue, currentValue) => prevValue + splitTitle(currentValue.title) + " --> " +currentValue.quantity + "\n",
+    (prevValue, currentValue) =>
+      prevValue +
+      splitTitle(currentValue.title) +
+      " --> " +
+      currentValue.quantity +
+      "\n",
     ""
   );
   const totalPrice = order.totalPrice;
   const bodyMessage = itemsName + "\n" + totalPrice;
-  console.log(bodyMessage)
+  console.log(bodyMessage);
 
   const handleOrderRequest = () => {
     axios
@@ -31,7 +34,11 @@ const TwilioOrder = () => {
       });
   };
 
-  return <button onClick={handleOrderRequest}>WA</button>;
+  return (
+    <button className="Cart__checkout button" onClick={handleOrderRequest}>
+      Checkout
+    </button>
+  );
 };
 
 export default TwilioOrder;

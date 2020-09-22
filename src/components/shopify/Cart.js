@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import LineItem from './LineItem';
+import TwilioOrder from "../TwilioOrder"
 
 class Cart extends Component {
   constructor(props) {
@@ -68,7 +69,10 @@ class Cart extends Component {
             </div> }
           </div>
           */}
-          <button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button>
+          {/*
+            <button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button>
+          */}
+        <TwilioOrder />  
         </footer>
       </div>
     )
