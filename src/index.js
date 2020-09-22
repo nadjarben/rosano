@@ -11,8 +11,8 @@ import './utils/i18n';
 
 // build shopify client
 const client = Client.buildClient({
-    storefrontAccessToken: '2003e7b2537e93a8b3ce176d278d14de',
-    domain: 'rosano-city-market.myshopify.com/'
+    storefrontAccessToken: '4c0e2652648eee97c2a5a93d7818eb89',
+    domain: 'rosano-market.myshopify.com/'
 });
 store.dispatch({type: 'CLIENT_CREATED', payload: client});
 
@@ -22,6 +22,7 @@ client.product.fetchAll().then((res) => {
 });
 client.checkout.create().then((res) => {
   store.dispatch({type: 'CHECKOUT_FOUND', payload: res});
+  console.log(res)
 });
 client.shop.fetchInfo().then((res) => {
   store.dispatch({type: 'SHOP_FOUND', payload: res});

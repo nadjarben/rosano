@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import VariantSelector from "./VariantSelector";
+import { withTranslation } from "react-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
@@ -8,28 +8,24 @@ import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import { ImageStyled, InputStyled } from "./style";
+import { ImageStyled, InputStyled, Background } from "./style";
 import CardProduct from "../CardProduct";
 
-//const ONE_SIZE_FITS_MOST = "One Size Fits Most";
-
-const styles = (theme) => ({
+const styles = (theme, props) => ({
   root: {
     margin: 0,
     color: "white",
     backgroundColor: "black",
-    width: 500,
+    minWidth: 350,
     padding: theme.spacing(2),
   },
   title: {
     fontSize: "20px",
     fontWeight: "bold",
-    fontFamily: 'Alef',
-
   },
-  closeButton: {
+  closeButtonRight: {
     fontSize: "40px",
-    position: 'absolute',
+    position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: "white",
@@ -40,11 +36,13 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography className={classes.title} variant="h6">{children}</Typography>
+      <Typography className={classes.title} variant="h6">
+        {children}
+      </Typography>
       {onClose ? (
         <IconButton
           aria-label="close"
-          className={classes.closeButton}
+          className={classes.closeButtonRight}
           onClick={onClose}
         >
           <CloseIcon fontSize="large" />
@@ -64,6 +62,14 @@ const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
+
+const DialogActionsStyled = withStyles((theme) => ({
+  root: {
+    margin: "auto",
+  width: "20%",
+  padding: "10px"
   },
 }))(MuiDialogActions);
 
@@ -129,7 +135,26 @@ class Product extends Component {
     const addProduct = () => {
       this.props.addVariantToCart(variant.id, variantQuantity);
       handleClose();
-    }
+    };
+
+    const splitTitle = () => {
+      const titleSplitted = this.props.product.title.split(" - ");
+      return this.props.i18n.language === "he" ? (
+        <DialogTitle
+          onClose={() => this.setState({ open: false })}
+          style={{ textAlign: "center" }}
+        >
+          {titleSplitted[0]}
+        </DialogTitle>
+      ) : (
+        <DialogTitle
+          onClose={() => this.setState({ open: false })}
+          style={{ textAlign: "center" }}
+        >
+          {titleSplitted[1]}
+        </DialogTitle>
+      );
+    };
 
     let variantImage =
       this.state.selectedVariantImage || this.props.product.images[0];
@@ -145,47 +170,58 @@ class Product extends Component {
           aria-labelledby="customized-dialog-title"
           open={this.state.open}
         >
-          <DialogTitle
-            onClose={() => this.setState({ open: false })}
-          >
-            {this.props.product.title}
-          </DialogTitle>
-          <DialogContent dividers>
-            {this.props.product.images.length ? (
-              <ImageStyled
-                src={variantImage.src}
-                alt={`${this.props.product.title} product shot`}
-              />
-            ) : null}
-            <Typography variant="h5" gutterBottom>
-              {this.props.product.description}
-            </Typography>
-            <Typography variant="h5" gutterBottom>₪{variant.price}</Typography>
-          </DialogContent>
-          <DialogActions>
-            <label className="Product__option">
-              Quantity:{" "}
-              <InputStyled
-                className="form-control"
-                min="1"
-                type="number"
-                defaultValue={variantQuantity}
-                onChange={this.handleQuantityChange}
-              />
-            </label>
-          </DialogActions>
-          <DialogActions>
-            <button
-              className="Product__buy button"
-              onClick={addProduct}
-            >
-              Add to Cart
-            </button>
-          </DialogActions>
+          <Background>
+            {splitTitle()}
+            <DialogContent dividers>
+              {this.props.product.images.length ? (
+                <ImageStyled
+                  src={variantImage.src}
+                  alt={`${this.props.product.title} product shot`}
+                />
+              ) : null}
+              <Typography
+                style={{ textAlign: "center" }}
+                variant="h5"
+                gutterBottom
+                className="product-info"
+              >
+                {this.props.product.description}
+              </Typography>
+              <Typography
+                style={{ textAlign: "center",
+                margin: "auto",
+                width: "20%",
+                padding: "10px"              
+              }}
+                variant="h5"
+                gutterBottom
+                className="product-info"
+              >
+                ₪{variant.price}
+              </Typography>
+            </DialogContent>
+            <DialogActionsStyled>
+              <label className="Product__option">
+                {this.props.t("Quantity")}{" "}
+                <InputStyled
+                  className="form-control"
+                  min="1"
+                  type="number"
+                  defaultValue={variantQuantity}
+                  onChange={this.handleQuantityChange}
+                />
+              </label>
+            </DialogActionsStyled>
+            <DialogActions>
+              <button className="Product__buy button" onClick={addProduct}>
+                Add to Cart
+              </button>
+            </DialogActions>
+          </Background>
         </Dialog>
       </>
     );
   }
 }
 
-export default Product;
+export default withTranslation()(Product);

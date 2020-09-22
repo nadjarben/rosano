@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  font-family: "Arimo", sans-serif;
   div:hover {
     background-color: black;
     color: white !important;
   }
 
   img {
-    height: 150px;
+    height: 130px;
     display: block;
     margin-left: auto;
     margin-right: auto;

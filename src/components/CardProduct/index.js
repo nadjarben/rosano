@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withTranslation } from 'react-i18next';
 //import VariantSelector from "./VariantSelector";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -23,6 +24,7 @@ class Product extends Component {
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleQuantityChange = this.handleQuantityChange.bind(this);
     this.findImage = this.findImage.bind(this);
+    this.splitTitle = this.splitTitle.bind(this);
   }
 
   findImage(images, variantId) {
@@ -57,9 +59,15 @@ class Product extends Component {
     });
   }
 
+  splitTitle(title){
+    console.log(this.props.i18n.language, "test")
+    const titleSplitted = title.split(" - ")
+    return this.props.i18n.language === "he" ? titleSplitted[0] : titleSplitted[1]
+  }
+
   render() {
     let variantImage =
-      this.state.selectedVariantImage || this.props.product.images[0];
+    this.state.selectedVariantImage || this.props.product.images[0];
     let variant = this.state.selectedVariant || this.props.product.variants[0];
     //let variantQuantity = this.state.selectedVariantQuantity || 1;
     return (
@@ -75,11 +83,8 @@ class Product extends Component {
               ) : null}
             </CardMedia>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2" style={{minHeight: "40px"}}>
-                {this.props.product.title}
-              </Typography>
-              <Typography className="text-description" variant="h6" component="p">
-                {this.props.product.description}
+              <Typography gutterBottom variant="h5" component="h2" style={{minHeight: "40px", textAlign: "center"}}>
+                {this.splitTitle(this.props.product.title)}
               </Typography>
               <div className="price-container">
                 {variant.compareAtPrice && (
@@ -107,4 +112,4 @@ class Product extends Component {
   }
 }
 
-export default Product;
+export default withTranslation()(Product);
