@@ -16,7 +16,8 @@ const TwilioOrder = () => {
     ""
   );
   const totalPrice = order.totalPrice;
-  const bodyMessage = itemsName + "\n" + totalPrice;
+  //const bodyMessage = itemsName + "\n" + totalPrice;
+  const bodyMessage = "test"
   console.log(bodyMessage)
 
   const handleOrderRequest = () => {
