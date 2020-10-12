@@ -2,12 +2,11 @@ import React from "react";
 import Divider from "@material-ui/core/Divider";
 import SocialNetworks from "./SocialNetworks";
 import { Wrapper } from "./style";
-import Banner from "../Banner";
+//import Banner from "../Banner";
 
 const Footer = () => {
   return (
     <Wrapper>
-      <Banner />
       <Divider />
       <SocialNetworks />
       <Divider />

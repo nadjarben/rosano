@@ -9,7 +9,7 @@ const Banner = () => {
       className="text-center"
       style={{
         background: "rgb(25, 25, 25)",
-        color: "white",
+        color: "black",
         position: "absolute",
         bottom: "0vh",
         width: "100%",

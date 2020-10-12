@@ -14,7 +14,7 @@ const Banner = () => {
         color: "black",
         width: "100%",
         fontSize: "15px",
-        marginTop: "-5px",
+        marginTop: "1px",
         fontWeight: "bold"
       }}
     >

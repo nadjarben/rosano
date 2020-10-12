@@ -1,79 +1,58 @@
-import React, { Component } from "react";
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItem, removeItem, clearItemFromCart } from '../../store/actions/cart'
 
-class LineItem extends Component {
-  constructor(props) {
-    super(props);
+const LineItem = (props) => {
+  const dispatch = useDispatch()
+  const language = useSelector(state => state.app.language)
+  return (
+    <li className="Line-item">
+      <div className="Line-item__img">
+        {props.cartItem.image ? (
+          <img
+            src={props.cartItem.image}
+            alt={`${props.cartItem.titleHe} product shot`}
+            className="line-item-pic"
+          />
+        ) : null}
+      </div>
+      <div className="Line-item__content">
+        <div className="Line-item__content-row">
+          <span className="Line-item__title">
+            {language === 'he' && props.cartItem.titleHe}
+              {language === 'fr' && props.cartItem.titleFr}
+              {language === 'en' && props.cartItem.titleEn}
 
-    this.decrementQuantity = this.decrementQuantity.bind(this);
-    this.incrementQuantity = this.incrementQuantity.bind(this);
-  }
-
-  decrementQuantity(lineItemId) {
-    const updatedQuantity = this.props.line_item.quantity - 1;
-    this.props.updateQuantityInCart(lineItemId, updatedQuantity);
-  }
-
-  incrementQuantity(lineItemId) {
-    const updatedQuantity = this.props.line_item.quantity + 1;
-    this.props.updateQuantityInCart(lineItemId, updatedQuantity);
-  }
-
-  render() {
-    return (
-      <li className="Line-item">
-        <div className="Line-item__img">
-          {this.props.line_item.variant.image ? (
-            <img
-              src={this.props.line_item.variant.image.src}
-              alt={`${this.props.line_item.title} product shot`}
-              className="line-item-pic"
-            />
-          ) : null}
-        </div>
-        <div className="Line-item__content">
-          <div className="Line-item__content-row">
-            <span className="Line-item__title">
-              {this.props.line_item.title}
             </span>
-          </div>
-          <div className="Line-item__content-row">
-            <div className="Line-item__quantity-container">
-              <button
-                className="Line-item__quantity-update"
-                onClick={() => this.decrementQuantity(this.props.line_item.id)}
-              >
-                -
-              </button>
-              <span className="Line-item__quantity">
-                {this.props.line_item.quantity}
-              </span>
-              <button
-                className="Line-item__quantity-update"
-                onClick={() => this.incrementQuantity(this.props.line_item.id)}
-              >
-                +
-              </button>
-            </div>
-            <span className="Line-item__price">
-              ₪{" "}
-              {(
-                this.props.line_item.quantity *
-                this.props.line_item.variant.price
-              ).toFixed(2)}
+        </div>
+        <div className="Line-item__content-row">
+          <div className="Line-item__quantity-container">
+            <button
+              className="Line-item__quantity-update"
+              onClick={() => dispatch(removeItem(props.cartItem))}
+            >
+              -
+            </button>
+            <span className="Line-item__quantity">
+              {props.cartItem.quantity}
             </span>
             <button
-              className="Line-item__remove"
-              onClick={() =>
-                this.props.removeLineItemInCart(this.props.line_item.id)
-              }
+              className="Line-item__quantity-update"
+              onClick={() => dispatch(addItem(props.cartItem))}
             >
-              ×
+              +
             </button>
           </div>
+          <span className="Line-item__price">
+            ₪ {(props.cartItem.quantity * props.cartItem.realPrice).toFixed(2)}
+          </span>
+          <button className="Line-item__remove"
+                        onClick={() => dispatch(clearItemFromCart(props.cartItem))}
+          >×</button>
         </div>
-      </li>
-    );
-  }
+      </div>
+    </li>
+  )
 }
 
-export default LineItem;
+export default LineItem

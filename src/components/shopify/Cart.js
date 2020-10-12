@@ -1,67 +1,74 @@
-import React, {Component} from 'react';
-import LineItem from './LineItem';
-import TwilioOrder from "../TwilioOrder"
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleCart } from '../../store/actions/app'
+import LineItem from './LineItem'
+//import TwilioOrder from "../TwilioOrder"
+import ModalOrder from '../ModalOrder'
 
-class Cart extends Component {
-  constructor(props) {
-    super(props);
-    this.openCheckout = this.openCheckout.bind(this);
+const Cart = () => {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const cartOpen = useSelector((state) => state.app.cartOpen)
+  const cartItems = useSelector((state) => state.cart.cartItems)
+
+  let line_items
+  if (cartItems) {
+    line_items = cartItems.map((cartItem) => {
+      return <LineItem key={cartItem._id} cartItem={cartItem} />
+    })
+  } else {
+    return <p>Loading...</p>
   }
 
-  openCheckout() {
-    window.open(this.props.checkout.webUrl);
-  }
-
-  render() {
-    let line_items;
-    if (this.props.checkout) {
-    line_items = this.props.checkout.lineItems.map((line_item) => {
-      return (
-        <LineItem
-          updateQuantityInCart={this.props.updateQuantityInCart}
-          removeLineItemInCart={this.props.removeLineItemInCart}
-          key={line_item.id.toString()}
-          line_item={line_item}
-        />
-      );
-    });
-    } else {
-      line_items = <p>Loading...</p>
-    }
-
-    return (
-      <div style={{color: "black"}} className={`Cart ${this.props.isCartOpen ? 'Cart--open' : ''}`}>
-        <header className="Cart__header">
-          <h2>Your cart</h2>
-          <button
-            onClick={this.props.handleCartClose}
-            className="Cart__close">
-            ×
-          </button>
-        </header>
-        <ul className="Cart__line-items">
-          {line_items}
-        </ul>
-        <footer className="Cart__footer">
-          <div className="Cart-info clearfix">
-            <div className="Cart-info__total Cart-info__small">Subtotal</div>
-            { this.props.checkout && <div className="Cart-info__pricing">
-              <span className="pricing">₪ {this.props.checkout.subtotalPrice}</span>
-            </div> }
-          </div>
-          <div className="Cart-info clearfix">
-            <div className="Cart-info__total Cart-info__small">Taxes</div>
-            { this.props.checkout && <div className="Cart-info__pricing">
-              <span className="pricing">₪ {this.props.checkout.totalTax}</span>
-            </div> }
-          </div>
-          <div className="Cart-info clearfix">
-            <div className="Cart-info__total Cart-info__small">Total</div>
-            { this.props.checkout && <div className="Cart-info__pricing">
-              <span className="pricing">₪ {this.props.checkout.totalPrice}</span>
-            </div> }
-          </div>
-          {/*
+  return (
+    <div
+      style={{ color: 'black' }}
+      className={`Cart ${cartOpen ? 'Cart--open' : ''}`}
+    >
+      <header className="Cart__header">
+        <h2>Your cart</h2>
+        <button onClick={() => dispatch(toggleCart())} className="Cart__close">
+          ×
+        </button>
+      </header>
+      <ul className="Cart__line-items">{line_items}</ul>
+      <footer className="Cart__footer">
+        {/*}
+        <div className="Cart-info clearfix">
+          <div className="Cart-info__total Cart-info__small">Subtotal</div>
+          {cartItems && (
+            <div className="Cart-info__pricing">
+              <span className="pricing">₪ {totalCart}</span>
+            </div>
+          )}
+        </div>
+        <div className="Cart-info clearfix">
+          <div className="Cart-info__total Cart-info__small">Taxes</div>
+          {cartItems && (
+            <div className="Cart-info__pricing">
+              <span className="pricing">₪ totalTax</span>
+            </div>
+          )}
+        </div>
+          */}
+        <div className="Cart-info clearfix">
+          <div className="Cart-info__total">{t('Total')}</div>
+          {cartItems && (
+            <div className="Cart-info__pricing">
+              <span className="pricing">
+                {' '}
+                ₪
+                {cartItems.reduce(
+                  (prevValue, currentValue) =>
+                    prevValue + currentValue.realPrice * currentValue.quantity,
+                  0
+                )}
+              </span>
+            </div>
+          )}
+        </div>
+        {/*
           <div className="Cart-info clearfix">
             <div className="Cart-info__total Cart-info__small">Donation Amount</div>
             { this.props.checkout && <div className="Cart-info__pricing">
@@ -69,14 +76,13 @@ class Cart extends Component {
             </div> }
           </div>
           */}
-          {/*
+        {/*
             <button className="Cart__checkout button" onClick={this.openCheckout}>Checkout</button>
           */}
-        <TwilioOrder />  
-        </footer>
-      </div>
-    )
-  }
+        <ModalOrder />
+      </footer>
+    </div>
+  )
 }
 
-export default Cart;
+export default Cart

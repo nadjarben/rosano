@@ -17,6 +17,7 @@ export const AppBarStyled = styled(AppBar)`
     font-size: 30px !important;
     font-weight: bold;
   }
+  
 `;
 
 export const TabsStyled = styled(Tabs)``;

@@ -1,4 +1,6 @@
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleCart } from '../../../store/actions/app'
 import Badge from "@material-ui/core/Badge";
 import IconButton from "@material-ui/core/IconButton";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -14,15 +16,15 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-const CardProductInTotal = (props) => {
-  const total = props.checkout.lineItems.reduce(
-    (prevValue, currentValue) => prevValue + currentValue.quantity,
-    0
-  );
+const CardProductInTotal = () => {
+  const dispatch = useDispatch()
+  const totalCart = useSelector(state => state.cart.totalItems)
 
   return (
-    <IconButton aria-label="cart">
-      <StyledBadge badgeContent={total} style={{ color: "white" }}>
+    <IconButton aria-label="cart"
+    onClick={() => dispatch(toggleCart())}
+    >
+      <StyledBadge badgeContent={totalCart} style={{ color: "white" }}>
         <ShoppingCartIcon
           fontSize="large"
           style={{ color: "white", fontSize: "30px" }}

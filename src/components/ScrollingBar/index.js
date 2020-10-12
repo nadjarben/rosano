@@ -1,7 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import store from "../../store/store";
+import { useDispatch } from 'react-redux'
+import { changeCategory } from '../../store/actions/app'
+import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { RollInDiv, AppBarStyled, TabsStyled, TabStyled } from "./style";
@@ -34,12 +35,16 @@ TabPanel.propTypes = {
 
 export default function ScrollableTabsButtonAuto() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const [value, setValue] = React.useState("package");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    store.dispatch({ type: "CHANGE_CATEGORY", payload: newValue });
   };
+
+  React.useEffect(() => {
+    dispatch(changeCategory(value))
+  }, [value])
 
   return (
     <RollInDiv>

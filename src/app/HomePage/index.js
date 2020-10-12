@@ -1,14 +1,16 @@
 import React from "react";
 import Divider from "@material-ui/core/Divider";
 import ScrollingBar from "../../components/ScrollingBar";
-import GenericProductsPage from "../../components/GenericProductsPage";
+import Products from "../../components/Products";
+import Banner from "../../components/Banner"
 
 const Homepage = () => {
   return (
     <>
       <ScrollingBar />
+      <Banner />
       <Divider />
-      <GenericProductsPage />
+      <Products />
       <br />
       <br />
       <br />
