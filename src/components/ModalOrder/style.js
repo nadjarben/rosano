@@ -7,6 +7,10 @@ import TextField from '@material-ui/core/TextField'
 export const DialogContentStyled = styled(DialogContent)`
   background-color: rgb(25, 25, 25);
   color: white;
+  
+  @media (min-width: 600px) {
+    min-width: 500px;
+  }
 `
 
 export const DialogTitleStyled = styled(DialogTitle)`

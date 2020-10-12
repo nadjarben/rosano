@@ -46,7 +46,7 @@ const ImagePicker = ({ client, setClient}) => {
           color="secondary"
           onClick={() => setImage("")}
         >
-          {t("Remove Cover")}
+          {t("Remove Tehuda Zeut")}
         </Button>
       )}
       <br/>
@@ -54,7 +54,7 @@ const ImagePicker = ({ client, setClient}) => {
       {loading ? (
         <h3>Loading ...</h3>
       ) : (
-        <img src={image} style={{ width: "200px" }} />
+        <img src={image} alt="" style={{ width: "200px" }} />
       )}
     </div>
     </div>

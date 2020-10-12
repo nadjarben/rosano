@@ -77,7 +77,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <br />
           <br />
-          <div style={{float: 'left', justifyContent: 'left', textAlign: 'left'}}>
+          <div style={{float: 'left', justifyContent: 'left', textAlign: 'left', marginLeft: '30px'}}>
           <ImagePicker client={client} setClient={setClient} />
           </div>
         </div>

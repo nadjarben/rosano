@@ -86,7 +86,7 @@ const LocaleSwitcher = ({ t, lang, toggleCollapse }) => {
         style={{
           backgroundColor: 'transparent',
           boxShadow: 'none',
-          zIndex: 100000,
+          zIndex: 10,
         }}
         onClick={handleClick}
       >
