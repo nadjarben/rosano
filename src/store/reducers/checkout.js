@@ -1,7 +1,8 @@
-import { GET_CLIENT } from "../actions/types";
+import { GET_CLIENT, GET_PAIEMENT } from "../actions/types";
 
 export const initialState = {
-  client: {}
+  client: {},
+  paiement: {}
 };
 
 export default function (state = initialState, action) {
@@ -10,6 +11,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         client: action.payload
+      };
+      case GET_PAIEMENT:
+      return {
+        ...state,
+        paiement: action.payload
       };
       default:
       return state;

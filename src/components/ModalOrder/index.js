@@ -10,6 +10,7 @@ import { useTheme } from '@material-ui/core/styles'
 import FirstPageModal from './FirstPageModal'
 //import SecondPageModal from './SecondPageModal'
 import CreditCard from './CreditCard'
+import TwilioOrder from '../TwilioOrder'
 import {
   DialogContentStyled,
   DialogTitleStyled,
@@ -71,6 +72,7 @@ export default function ResponsiveDialog() {
             <CreditCard client={client} handleChange={handleChange} />
           )}
         </DialogContentStyled>
+        <Divider />
         <DialogActionsStyled>
           {page !== 0 ? (
             <Button onClick={() => setPage(page - 1)} color="primary">
@@ -82,13 +84,11 @@ export default function ResponsiveDialog() {
             </Button>
           )}
           {page !== 1 ? (
-            <Button onClick={() => setPage(page + 1)} color="primary">
+            <Button variant='outlined' onClick={() => setPage(page + 1)} color="primary">
               Next
             </Button>
           ) : (
-            <Button onClick={handleClose} color="primary">
-              Order
-            </Button>
+            <TwilioOrder />
           )}
         </DialogActionsStyled>
       </Dialog>

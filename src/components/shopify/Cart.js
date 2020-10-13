@@ -11,6 +11,7 @@ const Cart = () => {
   const dispatch = useDispatch()
   const cartOpen = useSelector((state) => state.app.cartOpen)
   const cartItems = useSelector((state) => state.cart.cartItems)
+  const totalPrice = useSelector((state) => state.cart.totalPrice)
 
   let line_items
   if (cartItems) {
@@ -59,11 +60,7 @@ const Cart = () => {
               <span className="pricing">
                 {' '}
                 ₪
-                {cartItems.reduce(
-                  (prevValue, currentValue) =>
-                    prevValue + currentValue.realPrice * currentValue.quantity,
-                  0
-                )}
+                {totalPrice}
               </span>
             </div>
           )}

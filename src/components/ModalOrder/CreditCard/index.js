@@ -1,9 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getPaiement } from '../../../store/actions/checkout'
 import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 import { TextFieldStyled, TextFieldSmStyled } from '../style'
 
-export default class PaymentForm extends React.Component {
+class PaymentForm extends React.Component {
   state = {
     cvc: '',
     expiry: '',
@@ -20,6 +22,7 @@ export default class PaymentForm extends React.Component {
     const { name, value } = e.target
 
     this.setState({ [name]: value })
+    this.props.getPaiement(this.state)
   }
 
   render() {
@@ -50,18 +53,18 @@ export default class PaymentForm extends React.Component {
         <br />
         <form>
           <TextFieldStyled
-            type="tel"
-            name="number"
-            placeholder="Card Number"
+            type="name"
+            name="name"
+            placeholder="Card Name"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
           <br />
           <br />
           <TextFieldStyled
-            type="name"
-            name="name"
-            placeholder="Card Name"
+            type="tel"
+            name="number"
+            placeholder="Card Number"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
@@ -93,3 +96,7 @@ export default class PaymentForm extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({})
+
+export default connect(mapStateToProps, { getPaiement })(PaymentForm)
