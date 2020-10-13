@@ -21,8 +21,9 @@ class PaymentForm extends React.Component {
   handleInputChange = (e) => {
     const { name, value } = e.target
 
-    this.setState({ [name]: value })
-    this.props.getPaiement(this.state)
+    this.setState({ [name]: value }, () => {
+      this.props.getPaiement(this.state)
+    })
   }
 
   render() {

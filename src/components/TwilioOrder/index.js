@@ -42,7 +42,7 @@ const TwilioOrder = () => {
   console.log(bodyMessage)
 
   return (
-    <Button variant="outlined" onClick={handleOrderRequest} color="primary">
+    <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
       Order
     </Button>
   )

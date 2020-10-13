@@ -84,7 +84,7 @@ export default function ResponsiveDialog() {
             </Button>
           )}
           {page !== 1 ? (
-            <Button variant='outlined' onClick={() => setPage(page + 1)} color="primary">
+            <Button style={{fontSize: '15px'}} variant='outlined' onClick={() => setPage(page + 1)} color="primary">
               Next
             </Button>
           ) : (

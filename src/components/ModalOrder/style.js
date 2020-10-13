@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField'
 export const DialogContentStyled = styled(DialogContent)`
   background-color: rgb(25, 25, 25);
   color: white;
-
+ 
   @media (min-width: 600px) {
     min-width: 500px;
   }
@@ -31,15 +31,13 @@ export const DialogActionsStyled = styled(DialogActions)`
 export const TextFieldStyled = styled(TextField)`
   .MuiInputBase-input {
     color: white;
+    font-size: 15px;
     padding-top: 1vh;
     border-bottom: 2px solid white !important;
   }
-  .MuiTextField-root {
-    border-color: red !important;
-  }
   .MuiFormLabel-root {
     color: white;
-    border-color: red !important;
+    font-size: 15px;
   }
   .Mui-focused {
     border-color: red !important;
@@ -58,9 +56,10 @@ export const TextFieldStyled = styled(TextField)`
 `
 
 export const TextFieldSmStyled = styled(TextField)`
-  width: 50px;
+  width: 80px;
   .MuiInputBase-input {
     color: white;
+    font-size: 15px;
     padding-top: 1vh;
     border-bottom: 2px solid white !important;
   }
@@ -69,6 +68,7 @@ export const TextFieldSmStyled = styled(TextField)`
   }
   .MuiFormLabel-root {
     color: white;
+    font-size: 15px;
   }
   .Mui-focused {
     border-color: red !important;
