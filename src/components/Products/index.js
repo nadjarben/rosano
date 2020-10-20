@@ -22,6 +22,7 @@ const Products = () => {
       <Container>
         <Grid container justify="center" spacing={2}>
           {products
+          .sort((a, b) => a.brand.localeCompare(b.brand))
             .filter((product) => product.category === category)
             .map((product) => {
               return (

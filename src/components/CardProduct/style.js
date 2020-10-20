@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   font-family: "Arimo", sans-serif;
-  div:hover {
-    background-color: black;
-    color: white !important;
+ 
+  div {
+    background-color: rgb(25, 25, 25);
+    color: white;
   }
 
   img {
@@ -12,10 +13,6 @@ export const Wrapper = styled.div`
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  p:hover {
-    color: white !important;
   }
 
   button {
@@ -27,15 +24,15 @@ export const Wrapper = styled.div`
     color: grey;
   }
 
-.price-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .text-line-through {
     text-decoration: line-through;
     margin-right: 5px;
     color: grey;
   }
-}`;
+}`

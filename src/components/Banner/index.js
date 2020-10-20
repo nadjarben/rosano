@@ -10,7 +10,7 @@ const Banner = () => {
       style={{
         minHeight: "3.5vh",
         letterSpacing: "0.08857em",
-        background: "white",
+        background: "lightgray",
         color: "black",
         width: "100%",
         fontSize: "15px",

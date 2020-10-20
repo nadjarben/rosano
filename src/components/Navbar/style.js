@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   font-family: "Arimo", sans-serif;
   text-transform: uppercase;
   font-size: 18px;
+  background-color: rgb(25, 25, 25);
 
   .navbar-toggler:focus {
     outline: 1px black;

@@ -31,7 +31,7 @@ const CardProduct = (props) => {
                     variant="h6"
                     component="p"
                   >
-                    ₪{props.product.price}
+                    {props.product.price !== props.product.realPrice && `₪${props.product.price}` }
                   </Typography>
                 <Typography
                   className="text-price"

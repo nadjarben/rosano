@@ -8,7 +8,7 @@ const Banner = () => {
     <div
       className="text-center"
       style={{
-        background: "rgb(25, 25, 25)",
+        background: "lightgray",
         color: "black",
         position: "absolute",
         bottom: "0vh",

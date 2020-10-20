@@ -22,6 +22,13 @@ export const Background = styled.div`
     text-align: "center";
     font-size: 14px;
   }
+  .product-price {
+    font-family: "Arimo", sans-serif;
+    font-weight: bold;
+    color: white;
+    text-align: "center";
+    font-size: 16px;
+  }
   .add-btn {
     color: white;
     border-color: white;

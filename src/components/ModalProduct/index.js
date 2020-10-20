@@ -30,7 +30,7 @@ const styles = (theme) => ({
     position: 'absolute',
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: 'black',
+    color: 'white',
   },
 })
 
@@ -81,36 +81,10 @@ const ModalProduct = (props) => {
   const language = useSelector((state) => state.app.language)
   const [open, setOpen] = React.useState(false)
 
-  //handleOptionChange(event) {
-  //const target = event.target;
-  //let selectedOptions = this.state.selectedOptions;
-  //selectedOptions[target.name] = target.value;
-
-  //const selectedVariant = this.props.client.product.helpers.variantForOptions(
-  //this.props.product,
-  //selectedOptions
-  //);
-
-  //this.setState({
-  //selectedVariant: selectedVariant,
-  //selectedVariantImage: selectedVariant.attrs.image,
-  //});
-  //}
-
-  //handleQuantityChange(event) {
-  //this.setState({
-  //selectedVariantQuantity: event.target.value,
-  //});
-  //}
-
   const handleClose = () => {
     setOpen(false)
   }
 
-  //const addProduct = () => {
-  //this.props.addVariantToCart(variant.id, variantQuantity);
-  //handleClose();
-  //};
 
   const addProductToCart = () => {
     dispatch(addItem(props.product))
@@ -136,7 +110,11 @@ const ModalProduct = (props) => {
         <Background>
           <DialogTitle
             onClose={() => setOpen(false)}
-            style={{ textAlign: 'center' }}
+            style={{
+              textAlign: 'center',
+              background: 'rgb(25, 25, 25)',
+              color: 'white',
+            }}
           >
             {language === 'he' && props.product.titleHe}
             {language === 'fr' && props.product.titleFr}
@@ -167,7 +145,7 @@ const ModalProduct = (props) => {
               }}
               variant="h5"
               gutterBottom
-              className="product-info"
+              className="product-price"
             >
               ₪{props.product.realPrice}
             </Typography>

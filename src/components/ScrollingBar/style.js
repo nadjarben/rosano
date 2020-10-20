@@ -5,12 +5,12 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 export const AppBarStyled = styled(AppBar)`
-  background-color: white !important;
+  background-color: lightgray !important;
 
   .Mui-selected {
-    background-color: rgb(25, 25, 25);
+    background-color: white;
     outline: 1px black;
-    color: white !important;
+    color: black !important;
     padding: 15px !important;
   }
   .MuiSvgIcon-fontSizeSmall {
