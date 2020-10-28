@@ -3,10 +3,19 @@
     "Add to Cart": "Add to Cart",
     "Order and enjoy": "Order and Enjoy !!",
     "Total": "Total",
+    "Your cart": "Your cart",
     "Personal informations": "Personal informations:",
     "name": "Name",
     "phone": "Phone",
     "email": "Email",
     "address": "Address",
-    "tehuda": "Tehuda zeut"
+    "tehuda": "Tehuda zeut",
+    "Previous": "Previous",
+    "Close": "Close",
+    "Next": "Next",
+    "Order": "Order",
+    "Chekout": "Checkout",
+    "Upload tehuda zeut": "Upload tehuda zeut",
+    "Checkout": "Checkout"
+
 }

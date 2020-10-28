@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Typography from '@material-ui/core/Typography';
 import { TextFieldStyled } from '../style';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const FirstPageModal = () => {
   const classes = useStyles();
+  const { t } = useTranslation()
   return (
     <>
     <br />
@@ -25,7 +27,7 @@ const FirstPageModal = () => {
     <br />
     <form className={classes.root} noValidate autoComplete="off">
       <div>
-      <TextFieldStyled  required id="standard-required" label="Card Name" />
+      <TextFieldStyled  required id="standard-required" label="Card teest" />
       <br />
       <br />
       <TextFieldStyled required id="standard-required" label="Card Number" />

@@ -9,6 +9,7 @@ import ModalOrder from '../ModalOrder'
 const Cart = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const lang = useSelector((state) => state.app.language)
   const cartOpen = useSelector((state) => state.app.cartOpen)
   const cartItems = useSelector((state) => state.cart.cartItems)
   const totalPrice = useSelector((state) => state.cart.totalPrice)
@@ -53,18 +54,33 @@ const Cart = () => {
           )}
         </div>
           */}
-        <div className="Cart-info clearfix">
-          <div className="Cart-info__total">{t('Total')}</div>
+          {lang === 'he' ? 
+          <div className="Cart-info clearfix" >
           {cartItems && (
-            <div className="Cart-info__pricing">
-              <span className="pricing">
+            <div className="Cart-info__pricing-he">
+              <span className="pricing-he">
                 {' '}
                 ₪
                 {totalPrice}
               </span>
             </div>
           )}
+          <div className="Cart-info__total-he">{t('Total')}</div>
         </div>
+         :
+         <div className="Cart-info clearfix">
+         <div className="Cart-info__total">{t('Total')}</div>
+         {cartItems && (
+           <div className="Cart-info__pricing">
+             <span className="pricing">
+               {' '}
+               ₪
+               {totalPrice}
+             </span>
+           </div>
+         )}
+       </div>
+        }
         {/*
           <div className="Cart-info clearfix">
             <div className="Cart-info__total Cart-info__small">Donation Amount</div>

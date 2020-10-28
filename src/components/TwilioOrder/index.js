@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import Button from '@material-ui/core/Button'
 
@@ -9,9 +10,11 @@ const splitTitle = (title) => {
 }
 
 const TwilioOrder = () => {
+  const { t } = useTranslation()
   const cart = useSelector((state) => state.cart)
   const client = useSelector((state) => state.checkout.client)
   const paiement = useSelector((state) => state.checkout.paiement)
+  const lang = useSelector((state) => state.app.language)
 
   const itemsName = cart.cartItems.reduce(
     (prevValue, currentValue) =>
@@ -42,9 +45,17 @@ const TwilioOrder = () => {
   console.log(bodyMessage)
 
   return (
-    <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
-      Order
-    </Button>
+    <>
+    {lang === 'he' ? 
+     <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
+     {t('Order')}
+   </Button>
+   :
+   <Button style={{fontSize: '12px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
+     {t('Order')}
+ </Button>
+  }
+    </>
   )
 }
 

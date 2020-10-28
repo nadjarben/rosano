@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Typography from '@material-ui/core/Typography'
-import { TextFieldStyled } from '../style'
+import { useSelector } from 'react-redux'
+import { TextFieldStyled, TypographyHe } from '../style'
 import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import ImagePicker from '../ImagePicker';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,10 +21,14 @@ const useStyles = makeStyles((theme) => ({
 const FirstPageModal = ({ handleChange, client, setClient }) => {
   const { t } = useTranslation()
   const classes = useStyles()
+
+  const lang = useSelector(state => state.app.language)
   return (
     <>
       <br />
-      <Typography style={{fontWeight: 'bold', textAlign: 'center'}} variant="h6">{t("Personal informations")}</Typography>
+      {lang === 'he' ? <TypographyHe  variant="h6">{t("Personal informations")}</TypographyHe> :
+       <Typography  variant="h6">{t("Personal informations")}</Typography>
+      }
       <br />
       <form className={classes.root} autoComplete="off">
         <div>

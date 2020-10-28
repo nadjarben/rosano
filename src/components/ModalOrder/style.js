@@ -1,9 +1,20 @@
 import styled from 'styled-components'
+import Typography from '@material-ui/core/Typography'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import DialogActions from '@material-ui/core/DialogActions'
 import TextField from '@material-ui/core/TextField'
 
+
+export const Wrapper = styled.div`
+`
+
+export const TypographyHe = styled(Typography)`
+  font-weight: bold !important;
+  text-align: right;
+  font-size: 15px !important;
+  padding-right: 15%;
+`
 export const DialogContentStyled = styled(DialogContent)`
   background-color: #eeeeee;
   color: black;
@@ -16,7 +27,11 @@ export const DialogContentStyled = styled(DialogContent)`
 export const DialogTitleStyled = styled(DialogTitle)`
   background-color: rgb(25, 25, 25);
   color: white;
+  font-weight: bold;
   text-align: center;
+  .MuiTypography-h6 {
+    font-size: 16px !important;
+  }
 `
 
 export const DialogActionsStyled = styled(DialogActions)`
@@ -63,9 +78,6 @@ export const TextFieldSmStyled = styled(TextField)`
     font-size: 15px;
     padding-top: 1vh;
     border-bottom: 2px solid black !important;
-  }
-  .MuiTextField-root {
-    border-color: red !important;
   }
   .MuiFormLabel-root {
     color: black;

@@ -80,14 +80,15 @@ h2 {
 .button {
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  background-color: black;
+  background-color: rgb(25, 25, 25);
   color: white;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding: 10px 17px;
   cursor: pointer;
   transition: 0.5s;
   border: solid #1A1B2A 1px;
+  font-weight: bold;
 }
 
 .button:hover,
@@ -222,6 +223,13 @@ h2 {
   font-size: 16px;
 }
 
+.Cart-info__total-he {
+  float: right;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .Cart-info__small {
   font-size: 11px;
 }
@@ -230,10 +238,19 @@ h2 {
   float: right;
 }
 
+.Cart-info__pricing-he {
+  float: left;
+}
+
 .pricing {
   margin-left: 5px;
   font-size: 16px;
-  color: black;
+}
+
+.pricing-he {
+  margin-left: 5px;
+  font-size: 16px;
+  float: left;
 }
 
 /* LINE ITEMS
@@ -280,9 +297,14 @@ h2 {
 }
 
 .Line-item__title {
-  color: #4E5665;
+  color: white;
   font-size: 15px;
   font-weight: 400;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background-color: rgb(25, 25, 25);
 }
 
 .Line-item__price {
