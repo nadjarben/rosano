@@ -28,7 +28,7 @@ const Cart = () => {
       className={`Cart ${cartOpen ? 'Cart--open' : ''}`}
     >
       <header className="Cart__header">
-        <h2>Your cart</h2>
+        <h2 style={{textAlign: 'center'}}>{t('Your cart')}</h2>
         <button onClick={() => dispatch(toggleCart())} className="Cart__close">
           ×
         </button>

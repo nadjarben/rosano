@@ -38,7 +38,7 @@ const NavbarPage = (props) => {
                   alt="logo rosano"
                 />
               </BouncyDiv>
-              <span style={{textDecoration: "underline"}}>
+              <span style={{textDecoration: ""}}>
               <span className="rosano">Ro</span>
               <span className="s">s</span>
               <span className="rosano">ano</span>

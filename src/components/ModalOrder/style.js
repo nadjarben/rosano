@@ -5,8 +5,8 @@ import DialogActions from '@material-ui/core/DialogActions'
 import TextField from '@material-ui/core/TextField'
 
 export const DialogContentStyled = styled(DialogContent)`
-  background-color: rgb(25, 25, 25);
-  color: white;
+  background-color: #eeeeee;
+  color: black;
  
   @media (min-width: 600px) {
     min-width: 500px;
@@ -30,17 +30,18 @@ export const DialogActionsStyled = styled(DialogActions)`
 
 export const TextFieldStyled = styled(TextField)`
   .MuiInputBase-input {
-    color: white;
+    color: black;
     font-size: 15px;
     padding-top: 1vh;
-    border-bottom: 2px solid white !important;
+    border-bottom: 2px solid black !important;
   }
   .MuiFormLabel-root {
-    color: white;
+    color: black;
     font-size: 15px;
   }
   .Mui-focused {
     border-color: red !important;
+    color: black !important;
   }
 
   input::-webkit-outer-spin-button,
@@ -58,16 +59,16 @@ export const TextFieldStyled = styled(TextField)`
 export const TextFieldSmStyled = styled(TextField)`
   width: 80px;
   .MuiInputBase-input {
-    color: white;
+    color: black;
     font-size: 15px;
     padding-top: 1vh;
-    border-bottom: 2px solid white !important;
+    border-bottom: 2px solid black !important;
   }
   .MuiTextField-root {
     border-color: red !important;
   }
   .MuiFormLabel-root {
-    color: white;
+    color: black;
     font-size: 15px;
   }
   .Mui-focused {

@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   font-family: "Arimo", sans-serif;
  
   div {
-    background-color: rgb(25, 25, 25);
-    color: white;
+    background-color: #eeeeee;
+    color: black;
   }
 
   img {

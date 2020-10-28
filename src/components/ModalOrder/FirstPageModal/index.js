@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import Typography from '@material-ui/core/Typography'
 import { TextFieldStyled } from '../style'
 import { makeStyles } from '@material-ui/core/styles'
@@ -17,19 +18,19 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const FirstPageModal = ({ handleChange, client, setClient }) => {
+  const { t } = useTranslation()
   const classes = useStyles()
   return (
     <>
       <br />
-      <Typography variant="subtitle1">Personal informations :</Typography>
-      <br />
+      <Typography style={{fontWeight: 'bold', textAlign: 'center'}} variant="h6">{t("Personal informations")}</Typography>
       <br />
       <form className={classes.root} autoComplete="off">
         <div>
           <TextFieldStyled
             required
             id="fname standard-required"
-            label="Name"
+            label={t('name')}
             type="text"
             value={client.name}
             onChange={handleChange('name')}
@@ -40,7 +41,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
             required
             id="standard-required"
             type="tel"
-            label="Phone"
+            label={t('phone')}
             value={client.phone}
             onChange={handleChange('phone')}
           />
@@ -50,7 +51,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
             required
             id="standard-required"
             type="email"
-            label="Email"
+            label={t('email')}
             value={client.email}
             onChange={handleChange('email')}
           />
@@ -60,7 +61,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
             required
             id="standard-required"
             type="text"
-            label="Address"
+            label={t('address')}
             value={client.address}
             onChange={handleChange('address')}
           />
@@ -70,7 +71,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
             required
             id="standard-required"
             type="number"
-            label="Tehuda Zeout"
+            label={t('tehuda')}
             value={client.tehuda}
             onChange={handleChange('tehuda')}
           />

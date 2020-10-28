@@ -5,7 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 export const AppBarStyled = styled(AppBar)`
-  background-color: lightgray !important;
+  background-color: #eeeeee !important;
 
   .Mui-selected {
     background-color: white;
