@@ -17,31 +17,14 @@ export const Wrapper = styled.div`
   .logo {
     margin-left: auto;
     margin-right: auto;
+    width: 250px;
+    padding: 15px;
   }
-  .rosano {
-    font-weight: bold;
-    font-size: 18px;
-    font-family: 'Alef', sans-serif !important;
-  }
-  .s {
-    font-size: 20px;
-    font-style: italic;
-    font-weight: bold;
-    padding-right: 2px;
-  }
-  .s2 {
-    font-size: 14px;
-    font-style: italic;
-    padding-right: 2px;
-  }
-  .city {
-    font-size: 14px;
-  }
-
+  
   .shopping-cart {
     position: absolute;
     right: 80px;
-    top: 19px;
+    top: 39px;
     z-index: 1000;
     cursor: pointer;
   }
@@ -49,8 +32,10 @@ export const Wrapper = styled.div`
 
 export const MDBCollapseStyled = styled(MDBCollapse)`
   text-align: center;
+  @media (min-width: 600px) {
+    margin-left: 100px;
+  }
 `
-
 
 export const LanguageWrapper = styled.div`
   position: absolute;
