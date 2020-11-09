@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   font-family: "Arimo", sans-serif;
- 
+
   div {
     background-color: #eeeeee;
     color: black;

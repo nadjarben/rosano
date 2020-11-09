@@ -46,6 +46,7 @@ const NavbarPage = (props) => {
           />
           <MDBCollapseStyled id="navbarCollapse3" isOpen={isOpen} navbar>
             <LanguageSwitcher toggleCollapse={toggleCollapse} />
+            <div className="menu-items">
             <MDBNavbarNav left onClick={toggleCollapse}>
               <MDBNavItem active>
                 <MDBNavLink to="/">{t("home")}</MDBNavLink>
@@ -54,6 +55,7 @@ const NavbarPage = (props) => {
                 <MDBNavLink to="/contact">{t("contact")}</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
+            </div>
           </MDBCollapseStyled>
         </MDBNavbar>
       </Wrapper>

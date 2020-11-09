@@ -47,11 +47,11 @@ const TwilioOrder = () => {
   return (
     <>
     {lang === 'he' ? 
-     <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
+     <Button style={{fontSize: '17px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
      {t('Order')}
    </Button>
    :
-   <Button style={{fontSize: '12px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
+   <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
      {t('Order')}
  </Button>
   }

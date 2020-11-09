@@ -88,7 +88,7 @@ export default function ResponsiveDialog() {
               <TwilioOrder />
             ) : (
               <Button
-              style={{ fontSize: '15px' }}
+              style={{ fontSize: '17px' }}
               variant="outlined"
               onClick={() => setPage(page + 1)}
               color="primary"
@@ -122,7 +122,7 @@ export default function ResponsiveDialog() {
             )}
             {page !== 1 ? (
               <Button
-                style={{ fontSize: '12px' }}
+                style={{ fontSize: '17px' }}
                 variant="outlined"
                 onClick={() => setPage(page + 1)}
                 color="primary"

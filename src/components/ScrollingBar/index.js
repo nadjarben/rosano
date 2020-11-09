@@ -58,11 +58,12 @@ export default function ScrollableTabsButtonAuto() {
           TabIndicatorProps={{ style: { background: "white" } }}
         >
           <TabStyled label={t("package")} value="package" />
+          <TabStyled label={t("beer")} value="beer" />
           <TabStyled label={t("vodka")} value="vodka" />
           <TabStyled label={t("whiskey")} value="whiskey" />
           <TabStyled label={t("rhum")} value="rhum" />
           <TabStyled label={t("arak")} value="arak" />
-          <TabStyled label={t("beer")} value="beer" />
+          <TabStyled label={t("gin")} value="gin" />
           <TabStyled label={t("snack")} value="snack" />
           <TabStyled label={t("soft drink")} value="soft drink" />
         </TabsStyled>

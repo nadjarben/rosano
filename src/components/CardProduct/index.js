@@ -20,7 +20,7 @@ const CardProduct = (props) => {
             />
           </CardMedia>
           <CardContent>
-            <div style={{ minHeight: '40px', textAlign: 'center' }}>
+            <div style={{ minHeight: '40px', textAlign: 'center', lineHeight: '1px' }}>
               <Typography
                 gutterBottom
                 variant="h5"
