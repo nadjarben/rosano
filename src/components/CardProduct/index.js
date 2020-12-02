@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import ButtonsAdmin from './ButtonsAdmin'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
@@ -8,10 +9,13 @@ import Typography from '@material-ui/core/Typography'
 import { Wrapper } from './style'
 
 const CardProduct = (props) => {
+  const adminMode = useSelector((state) => state.app.adminMode)
   const language = useSelector((state) => state.app.language)
   return (
     <Wrapper>
       <Card style={{ borderRadius: '10px' }}>
+      {!adminMode && <ButtonsAdmin />}
+      <div onClick={() => props.setOpen(true)}>
         <CardActionArea>
           <CardMedia style={{ marginTop: '20px' }}>
             <img
@@ -20,7 +24,13 @@ const CardProduct = (props) => {
             />
           </CardMedia>
           <CardContent>
-            <div style={{ minHeight: '40px', textAlign: 'center', lineHeight: '1px' }}>
+            <div
+              style={{
+                minHeight: '40px',
+                textAlign: 'center',
+                lineHeight: '1px',
+              }}
+            >
               <Typography
                 gutterBottom
                 variant="h5"
@@ -48,6 +58,7 @@ const CardProduct = (props) => {
             </div>
           </CardContent>
         </CardActionArea>
+        </div>
       </Card>
     </Wrapper>
   )

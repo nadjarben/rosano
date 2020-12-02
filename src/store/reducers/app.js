@@ -1,9 +1,11 @@
-import { CHANGE_CATEGORY, TOGGLE_CART, CHANGE_LANGUAGE } from "../actions/types";
+import { CHANGE_CATEGORY, TOGGLE_CART, CHANGE_LANGUAGE, ACTIVE_ADMIN_MODE, TOGGLE_MODAL_ADMIN } from "../actions/types";
 
 export const initialState = {
   category: 'package',
   cartOpen: false,
-  language: ''
+  language: '',
+  adminMode: false,
+  modalAdmin: false
 };
 
 export default function (state = initialState, action) {
@@ -22,6 +24,16 @@ export default function (state = initialState, action) {
       return {
         ...state,
         cartOpen: !state.cartOpen,
+      };
+      case ACTIVE_ADMIN_MODE:
+      return {
+        ...state,
+        adminMode: !state.adminMode
+      };
+      case TOGGLE_MODAL_ADMIN:
+      return {
+        ...state,
+        modalAdmin: !state.modalAdmin
       };
       default:
       return state;

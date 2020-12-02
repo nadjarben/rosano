@@ -93,8 +93,8 @@ const ModalProduct = (props) => {
 
   return (
     <>
-      <div onClick={() => setOpen(true)}>
-        <CardProduct product={props.product} />
+      <div>
+        <CardProduct product={props.product} setOpen={setOpen} />
       </div>
       <Dialog
         onClose={handleClose}
