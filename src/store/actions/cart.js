@@ -3,6 +3,7 @@ import {
   CLEAR_ITEM_FROM_CART,
   REMOVE_ITEM,
   UPDATE_PRICE,
+  RESET_CART
 } from './types'
 
 export const addItem = (item) => async (dispatch) => {
@@ -30,5 +31,11 @@ export const updatePrice = (price) => async (dispatch) => {
   dispatch({
     type: UPDATE_PRICE,
     payload: price,
+  })
+}
+
+export const resetCart = () => async (dispatch) => {
+  dispatch({
+    type: RESET_CART
   })
 }

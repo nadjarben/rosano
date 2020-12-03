@@ -11,9 +11,11 @@ import Navbar from '../components/Navbar'
 import LogoSpinner from '../components/LogoSpinner'
 import Footer from '../components/Footer'
 import ModalAdmin from '../components/ModalAdmin'
+import StyleProvider from '../styleProvider'
 import { Wrapper } from './style'
 import { theme } from '../theme'
 import { ThemeProvider } from '@material-ui/core/styles'
+
 
 const App = () => {
   const dispatch = useDispatch()
@@ -25,6 +27,7 @@ const App = () => {
 
   return (
     <React.Suspense fallback={<LogoSpinner />}>
+      <StyleProvider>
       <ThemeProvider theme={theme}>
         <Router>
         <Navbar />
@@ -41,6 +44,7 @@ const App = () => {
           </div>
         </Router>
       </ThemeProvider>
+      </StyleProvider>
     </React.Suspense>
   )
 }

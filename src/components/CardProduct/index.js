@@ -12,11 +12,10 @@ const CardProduct = (props) => {
   const adminMode = useSelector((state) => state.app.adminMode)
   const language = useSelector((state) => state.app.language)
   return (
-    <>
-      {adminMode ? (
         <Wrapper
           bg={adminMode && !props.product.available ? '#808080' : '#eeeeee'}
           textColor={adminMode && !props.product.available ? 'white' : 'black'}
+          line={adminMode && !props.product.available ? 'white' : 'grey'}
         >
           <Card style={{ borderRadius: '10px' }}>
             {adminMode && <ButtonsAdmin product={props.product} />}
@@ -76,69 +75,7 @@ const CardProduct = (props) => {
             </div>
           </Card>
         </Wrapper>
-      ) : (
-        props.product.available && (
-          <Wrapper
-            bg={adminMode && !props.product.available ? '#808080' : '#eeeeee'}
-            textColor={
-              adminMode && !props.product.available ? 'white' : 'black'
-            }
-          >
-            <Card style={{ borderRadius: '10px' }}>
-              {adminMode && <ButtonsAdmin product={props.product} />}
-              <div onClick={() => props.setOpen(true)}>
-                <CardActionArea>
-                  <CardMedia style={{ marginTop: '20px' }}>
-                    <img
-                      src={props.product.image}
-                      alt={`${props.product.titleHe} product shot`}
-                    />
-                  </CardMedia>
-                  <CardContent>
-                    <div
-                      style={{
-                        minHeight: '40px',
-                        textAlign: 'center',
-                        lineHeight: '1px',
-                      }}
-                    >
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="h2"
-                        style={{ fontWeight: 'bold' }}
-                      >
-                        {language === 'he' && props.product.titleHe}
-                        {language === 'fr' && props.product.titleFr}
-                        {language === 'en' && props.product.titleEn}
-                      </Typography>
-                      <p>({props.product.liter}cl)</p>
-                    </div>
-                    <div className="price-container">
-                      <Typography
-                        className="text-line-through"
-                        variant="h6"
-                        component="p"
-                      >
-                        {props.product.price !== props.product.realPrice &&
-                          `₪${props.product.price}`}
-                      </Typography>
-                      <Typography
-                        className="text-price"
-                        variant="h5"
-                        component="p"
-                      >
-                        ₪{props.product.realPrice}
-                      </Typography>
-                    </div>
-                  </CardContent>
-                </CardActionArea>
-              </div>
-            </Card>
-          </Wrapper>
-        )
-      )}
-    </>
+
   )
 }
 

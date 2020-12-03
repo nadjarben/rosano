@@ -3,6 +3,7 @@ import {
   REMOVE_ITEM,
   CLEAR_ITEM_FROM_CART,
   UPDATE_PRICE,
+  RESET_CART,
 } from '../actions/types'
 import { addItemToCart, removeItemFromCart } from './cart.utils'
 
@@ -45,6 +46,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         totalPrice: action.payload,
+      }
+    case RESET_CART:
+      return {
+        ...state,
+        cartItems: [],
+        totalItems: 0,
+        totalPrice: 0,
       }
     default:
       return state

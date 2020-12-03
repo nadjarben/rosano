@@ -85,7 +85,6 @@ const ModalProduct = (props) => {
     setOpen(false)
   }
 
-
   const addProductToCart = () => {
     dispatch(addItem(props.product))
     setOpen(false)
@@ -121,10 +120,18 @@ const ModalProduct = (props) => {
             {language === 'en' && props.product.titleEn}
           </DialogTitle>
           <DialogContent dividers>
-            <ImageStyled
-              src={props.product.image}
-              alt={`${props.product.titleHe} product shot`}
-            />
+            {props.product.image ? (
+              <ImageStyled
+                src={props.product.image}
+                alt={`${props.product.titleHe} product shot`}
+              />
+            ) : (
+              <ImageStyled
+              style={{backgroundColor: 'white' }}
+                src="https://static.thenounproject.com/png/1174579-200.png"
+                alt={`${props.product.titleHe} product shot`}
+              />
+            )}
             <br />
             <Typography
               style={{ textAlign: 'center' }}

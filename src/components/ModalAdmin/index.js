@@ -1,4 +1,5 @@
 import React from 'react'
+import { PASSWORD } from '../../utils/environment'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleModalAdmin, activeAdminMode } from '../../store/actions/app'
 import Button from '@material-ui/core/Button'
@@ -19,7 +20,7 @@ export default function FormDialog() {
   }
 
   const checkPassword = (password) => {
-    const correctPassword = 'rosanos'
+    const correctPassword = PASSWORD
     if (password === correctPassword) {
       dispatch(activeAdminMode())
       dispatch(toggleModalAdmin())

@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetCart } from '../../store/actions/cart'
 import Button from '@material-ui/core/Button'
 
 const splitTitle = (title) => {
@@ -11,6 +12,8 @@ const splitTitle = (title) => {
 
 const TwilioOrder = () => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+
   const cart = useSelector((state) => state.cart)
   const client = useSelector((state) => state.checkout.client)
   const paiement = useSelector((state) => state.checkout.paiement)
@@ -40,21 +43,30 @@ const TwilioOrder = () => {
       .then((res) => {
         console.log(res)
         console.log(res.data)
+        dispatch(resetCart())
       })
   }
-  console.log(bodyMessage)
-
   return (
     <>
-    {lang === 'he' ? 
-     <Button style={{fontSize: '17px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
-     {t('Order')}
-   </Button>
-   :
-   <Button style={{fontSize: '15px'}} variant="outlined" onClick={handleOrderRequest} color="primary">
-     {t('Order')}
- </Button>
-  }
+      {lang === 'he' ? (
+        <Button
+          style={{ fontSize: '17px' }}
+          variant="outlined"
+          onClick={handleOrderRequest}
+          color="primary"
+        >
+          {t('Order')}
+        </Button>
+      ) : (
+        <Button
+          style={{ fontSize: '15px' }}
+          variant="outlined"
+          onClick={handleOrderRequest}
+          color="primary"
+        >
+          {t('Order')}
+        </Button>
+      )}
     </>
   )
 }

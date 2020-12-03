@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux'
-import { changeCategory } from '../../store/actions/app'
+import { changeCategory, resetSearchBar } from '../../store/actions/app'
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
@@ -44,6 +44,7 @@ export default function ScrollableTabsButtonAuto() {
 
   React.useEffect(() => {
     dispatch(changeCategory(value))
+    dispatch(resetSearchBar())
   }, [value])
 
   return (

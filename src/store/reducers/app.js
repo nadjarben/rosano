@@ -4,13 +4,17 @@ import {
   CHANGE_LANGUAGE,
   ACTIVE_ADMIN_MODE,
   TOGGLE_MODAL_ADMIN,
+  SEARCH_BAR_RESULT,
+  RESET_SEARCH_BAR,
 } from '../actions/types'
 
 export const initialState = {
   category: 'package',
+  searchBar: '',
+  toggleSearchBar: false,
   cartOpen: false,
   language: '',
-  adminMode: true,
+  adminMode: false,
   modalAdmin: false,
 }
 
@@ -40,6 +44,17 @@ export default function(state = initialState, action) {
       return {
         ...state,
         modalAdmin: !state.modalAdmin,
+      }
+    case SEARCH_BAR_RESULT:
+      return {
+        ...state,
+        searchBar: action.payload,
+      }
+    case RESET_SEARCH_BAR:
+      return {
+        ...state,
+        searchBar: '',
+        toggleSearchBar: false,
       }
     default:
       return state

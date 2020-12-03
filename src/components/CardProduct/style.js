@@ -33,6 +33,6 @@ export const Wrapper = styled.div`
   .text-line-through {
     text-decoration: line-through;
     margin-right: 5px;
-    color: grey;
+    color: ${props => props.line};
   }
 }`

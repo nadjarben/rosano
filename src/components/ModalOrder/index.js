@@ -25,20 +25,21 @@ export default function ResponsiveDialog() {
   const theme = useTheme()
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const lang = useSelector((state) => state.app.language)
+  const client = useSelector((state) => state.checkout.client)
   const [open, setOpen] = React.useState(false)
   const [page, setPage] = React.useState(0)
-  const [client, setClient] = React.useState({
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
-    tehuda: null,
-    tehudaImage: '',
+  const [newClient, setNewClient] = React.useState({
+    name: client.name,
+    phone: client.phone,
+    email: client.email,
+    address: client.address,
+    tehuda: client.tehuda,
+    tehudaImage: client.tehudaImage,
   })
 
   React.useEffect(() => {
-    dispatch(getClient(client))
-  }, [client])
+    dispatch(getClient(newClient))
+  }, [newClient])
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -50,7 +51,7 @@ export default function ResponsiveDialog() {
   }
 
   const handleChange = (name) => (e) => {
-    setClient({ ...client, [name]: e.target.value })
+    setNewClient({ ...newClient, [name]: e.target.value })
   }
 
   return (
@@ -73,7 +74,7 @@ export default function ResponsiveDialog() {
             <FirstPageModal
               client={client}
               handleChange={handleChange}
-              setClient={setClient}
+              setClient={setNewClient}
             />
           )}
           {page === 1 && (

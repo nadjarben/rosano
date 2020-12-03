@@ -34,6 +34,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
         <div>
           <TextFieldStyled
             required
+            dir={lang === 'he' ? 'rtl' : 'ltr'}
             id="fname standard-required"
             label={t('name')}
             type="text"
@@ -44,6 +45,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <TextFieldStyled
             required
+            dir={lang === 'he' ? 'rtl' : 'ltr'}
             id="standard-required"
             type="tel"
             label={t('phone')}
@@ -54,6 +56,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <TextFieldStyled
             required
+            dir={lang === 'he' ? 'rtl' : 'ltr'}
             id="standard-required"
             type="email"
             label={t('email')}
@@ -64,6 +67,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <TextFieldStyled
             required
+            dir={lang === 'he' ? 'rtl' : 'ltr'}
             id="standard-required"
             type="text"
             label={t('address')}
@@ -74,6 +78,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <TextFieldStyled
             required
+            dir={lang === 'he' ? 'rtl' : 'ltr'}
             id="standard-required"
             type="number"
             label={t('tehuda')}
@@ -83,7 +88,7 @@ const FirstPageModal = ({ handleChange, client, setClient }) => {
           <br />
           <br />
           <br />
-          <div style={{float: 'left', justifyContent: 'left', textAlign: 'left', marginLeft: '30px'}}>
+          <div style={{float: 'center', justifyContent: 'center', textAlign: 'center' }}>
           <ImagePicker client={client} setClient={setClient} />
           </div>
         </div>

@@ -4,6 +4,9 @@ import {
   ON_FETCH_PRODUCT_STARTED,
   ON_FETCH_PRODUCT_SUCCEEDED,
   ON_FETCH_PRODUCT_FAILED,
+  ON_CREATE_PRODUCT_STARTED,
+  ON_CREATE_PRODUCT_SUCCEEDED,
+  ON_CREATE_PRODUCT_FAILED,
   ON_DELETE_PRODUCT_STARTED,
   ON_DELETE_PRODUCT_SUCCEEDED,
   ON_DELETE_PRODUCT_FAILED,
@@ -159,3 +162,45 @@ export const updateProduct = (id, newProduct) => async (dispatch) => {
     });
   }
 };
+
+export const createProduct = (newProduct) => async (dispatch) => {
+  dispatch({
+    type: ON_CREATE_PRODUCT_STARTED,
+  });
+  try {
+    const response = await axios.post(
+      `${API_ROSANO}/product/create`,newProduct
+    );
+    setTimeout(() => {
+      dispatch({
+        type: ON_CREATE_PRODUCT_SUCCEEDED,
+        payload: response.data,
+      });
+    }, 1000);
+    dispatch({
+      type: ON_FETCH_PRODUCT_STARTED,
+    });
+    try {
+      const response = await axios.get(
+        `${API_ROSANO}/product/products`
+      );
+      setTimeout(() => {
+        dispatch({
+          type: ON_FETCH_PRODUCT_SUCCEEDED,
+          payload: response.data,
+        });
+      }, 1000);
+    } catch (error) {
+      dispatch({
+        type: ON_FETCH_PRODUCT_FAILED,
+        payload: error.message,
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: ON_CREATE_PRODUCT_FAILED,
+      payload: error.message,
+    });
+  }
+};
+

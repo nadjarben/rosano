@@ -12,5 +12,16 @@ export const Wrapper = styled.div`
     letter-spacing: 0.02857em;
     font-weight: bold;
     text-align: center;
+    width: 100%;
+  }
+  .modal-create {
+    position: absolute;
+    right: 8px;
+    margin-top: 2px
+  }
+  .search-bar {
+    position: absolute;
+    left: 8px;
+    margin-top: 2px
   }
 `;

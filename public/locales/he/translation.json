@@ -25,9 +25,21 @@
     "tehuda": "תהודה זוט",
     "Previous": "קודם",
     "Close": "לסגור",
-    "Next": "הַבָּא",
+    "Next": "הבּה",
     "Order": "להזמין",
     "Chekout": "קופה בעגלה",
     "Upload tehuda zeut": "העלה תהודה זוט",
-    "Checkout": "עגלת קופה"
+    "Checkout": "עגלת קופה",
+    "Title hebrew": "כותרת עברית",
+    "Title english": "כותרת אנגלית",
+    "Title french": "כותרת צרפתית",
+    "Category": "קטגוריה",
+    "Description hebrew": "תיאור עברית",
+    "Description english": "תיאור אנגלית",
+    "Description french": "תיאור צרפתית",
+    "Brand": "מותג",
+    "Price": "מחיר",
+    "Price after promotion": "מחיר לאחר מבצע",
+    "Liter": "לִיטר",
+    "Alcool percentage": "אחוז אלקול"
 }
