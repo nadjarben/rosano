@@ -1,5 +1,4 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { searchBarResult, resetSearchBar } from '../../store/actions/app'
 import { useDispatch, useSelector } from 'react-redux'
 import { fade, makeStyles } from '@material-ui/core/styles'
@@ -76,7 +75,6 @@ const SearchBar = () => {
     },
   }))
 
-  const { t } = useTranslation()
   const classes = useStyles()
   const dispatch = useDispatch()
   const lang = useSelector((state) => state.app.language)
@@ -96,7 +94,6 @@ const SearchBar = () => {
         </div>
         <div style={{ display: 'flex' }}>
           <InputBase
-            placeholder={t('Search')}
             autoComplet="off"
             value={value.searchTyped}
             dir={lang === 'he' ? 'rtl' : 'ltr'}

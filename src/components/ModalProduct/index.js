@@ -28,7 +28,7 @@ const styles = (theme) => ({
   closeButtonRight: {
     fontSize: '40px',
     position: 'absolute',
-    right: theme.spacing(1),
+    left: theme.spacing(1),
     top: theme.spacing(1),
     color: 'white',
   },
