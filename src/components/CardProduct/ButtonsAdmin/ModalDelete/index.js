@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
+import { deleteProduct } from '../../../../store/actions/product'
 import IconButton from "@material-ui/core/IconButton";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import Button from '@material-ui/core/Button';
@@ -8,7 +10,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function AlertDialog() {
+const AlertDialog = ({ product }) => {
+  const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -18,6 +21,11 @@ export default function AlertDialog() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleDelete = (id) => {
+    dispatch(deleteProduct(id))
+    handleClose();
+  }
 
   return (
     <div>
@@ -37,7 +45,7 @@ export default function AlertDialog() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary">
+          <Button onClick={() => handleDelete(product._id)} color="secondary">
             Confirm
           </Button>
           <Button onClick={handleClose} color="secondary" autoFocus>
@@ -48,3 +56,5 @@ export default function AlertDialog() {
     </div>
   );
 }
+
+export default AlertDialog

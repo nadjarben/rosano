@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   font-family: "Arimo", sans-serif;
 
   div {
-    background-color: #eeeeee;
-    color: black;
+    background-color: ${props => props.bg};
+    color: ${props => props.textColor};
   }
 
   img {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div``;
 
 export const LogoStyled = styled.img`
-  width: 400px;
+  width: 150px;
   position: absolute;
     margin: auto;
     top: 0;

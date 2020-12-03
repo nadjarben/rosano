@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   .footer {
     text-align: center;
     justify-content: center;
+    padding: 5px;
   }
 
   .footer-title {

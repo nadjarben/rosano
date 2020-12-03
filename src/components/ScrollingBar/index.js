@@ -36,7 +36,7 @@ TabPanel.propTypes = {
 export default function ScrollableTabsButtonAuto() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState("whiskey");
+  const [value, setValue] = React.useState("beer");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

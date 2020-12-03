@@ -48,15 +48,10 @@ export const TextFieldStyled = styled(TextField)`
     color: black;
     font-size: 15px;
     padding-top: 1vh;
-    border-bottom: 2px solid black !important;
   }
   .MuiFormLabel-root {
     color: black;
     font-size: 15px;
-  }
-  .Mui-focused {
-    border-color: red !important;
-    color: black !important;
   }
 
   input::-webkit-outer-spin-button,
@@ -82,9 +77,6 @@ export const TextFieldSmStyled = styled(TextField)`
   .MuiFormLabel-root {
     color: black;
     font-size: 15px;
-  }
-  .Mui-focused {
-    border-color: red !important;
   }
 
   input::-webkit-outer-spin-button,
