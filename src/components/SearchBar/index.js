@@ -63,7 +63,7 @@ const SearchBar = () => {
       [theme.breakpoints.up('sm')]: {
         width: '12ch',
         '&:focus': {
-          width: '25ch',
+          width: '23ch',
         },
       },
     },

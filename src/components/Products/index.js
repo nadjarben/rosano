@@ -51,9 +51,8 @@ const Products = () => {
               <div className="modal-create">
                 <ModalCreateProduct />
               </div>
-              <div className="search-bar">
-              </div>
             </div>
+            <div className='caroussel'>
             <Slider {...settings}>
               <div>
                 <img src={beer} alt='beer' width='100%' height='250px' />
@@ -65,6 +64,7 @@ const Products = () => {
                 <img src={vodka} alt='voska' width='100%' height='250px' />
               </div>
             </Slider>
+            </div>
             <Container>
               <Grid container justify="center" spacing={2}>
                 {products

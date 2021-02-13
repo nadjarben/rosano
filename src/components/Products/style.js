@@ -22,7 +22,12 @@ export const Wrapper = styled.div`
   .search-bar {
     position: absolute;
     left: 1rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+  }
+  .caroussel {
+    @media (min-width: 600px) {
+    display: none;
+  }
   }
   .slick-list {
     margin-top: -2vh;
