@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import bar from "../../assets/bar2.jpg";
 
-const url = "https://st.depositphotos.com/3008028/3749/i/950/depositphotos_37493071-stock-photo-abstract-grey-background.jpg"
-
 export const Background = styled.div`
   /* background-image: url(${bar}) !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; */
-  background-image: url(${url}) !important;
+  background-image: url(${props => props.bg}) !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: black;
   /* font-weight: bold; */
   font-size: 20px;
@@ -20,14 +22,17 @@ export const Background = styled.div`
   .product-info {
     font-family: 'Bellefair', serif;
     font-weight: bold;
+    font-size: 18px;
     text-align: center;
-    font-size: 14px;
   }
   .product-price {
     font-family: 'Bellefair', serif;
     font-weight: bold;
-    text-align: center;
-    font-size: 16px;
+    font-size: 20px;
+    text-align: left !important;
+    justify-content: left !important;
+    position: absolute;
+    left: 2rem;
   }
   .add-btn {
     border-color: black;

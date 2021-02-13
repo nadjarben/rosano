@@ -19,8 +19,8 @@ import logo from '../../assets/logo.png'
 const styles = (theme) => ({
   root: {
     margin: 0,
-    color: 'black',
-    backgroundColor: 'white',
+    background: 'unset !important',
+    color: 'black !important',
     minWidth: 350,
   },
   title: {
@@ -32,7 +32,7 @@ const styles = (theme) => ({
     position: 'absolute',
     left: theme.spacing(1),
     top: theme.spacing(1),
-    color: 'white',
+    color: 'black',
   },
 })
 
@@ -41,7 +41,7 @@ const DialogTitle = withStyles(styles)((props) => {
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <img src={logo} alt='logo' width='100%' />
-      <Divider style={{color: 'white', background: 'white', height: '3px'}} />
+      <Divider style={{ color: 'black', background: 'black', height: '3px' }} />
       <Typography className={classes.title} variant="h6">
         {children}
       </Typography>
@@ -83,6 +83,7 @@ const ModalProduct = (props) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const language = useSelector((state) => state.app.language)
+  const category = useSelector((state) => state.app.category)
   const [open, setOpen] = React.useState(false)
 
   const handleClose = () => {
@@ -110,7 +111,11 @@ const ModalProduct = (props) => {
           },
         }}
       >
-        <Background>
+        <Background bg={
+          category === 'vodka' && "https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg"
+          || category === 'whiskey' && "https://ak.picdn.net/shutterstock/videos/6043583/thumb/1.jpg"
+          || category === 'beer' && "https://i.pinimg.com/236x/db/7f/c2/db7fc263c7ff27035979a51498577d8a--beer.jpg"
+        }>
           <DialogTitle
             onClose={() => setOpen(false)}
             style={{
@@ -131,34 +136,18 @@ const ModalProduct = (props) => {
               />
             ) : (
               <ImageStyled
-              style={{backgroundColor: 'white' }}
+                style={{ backgroundColor: 'white' }}
                 src="https://static.thenounproject.com/png/1174579-200.png"
                 alt={`${props.product.titleHe} product shot`}
               />
             )}
             <br />
             <Typography
-              style={{ textAlign: 'center' }}
-              variant="h5"
-              gutterBottom
               className="product-info"
             >
               {language === 'he' && props.product.descriptionHe}
               {language === 'fr' && props.product.descriptionFr}
               {language === 'en' && props.product.descriptionEn}
-            </Typography>
-            <Typography
-              style={{
-                textAlign: 'center',
-                margin: 'auto',
-                width: '20%',
-                padding: '10px',
-              }}
-              variant="h5"
-              gutterBottom
-              className="product-price"
-            >
-              ₪{props.product.realPrice}
             </Typography>
           </DialogContent>
           {/*<DialogActionsStyled>
@@ -173,7 +162,12 @@ const ModalProduct = (props) => {
             </label>
           </DialogActionsStyled>
           */}
-          <DialogActions>
+          <DialogActions style={{ display: 'flex'}}>
+          <Typography
+              className="product-price"
+            >
+              ₪{props.product.realPrice}
+            </Typography>
             <Button
               onClick={addProductToCart}
               variant="outlined"

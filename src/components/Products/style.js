@@ -16,12 +16,18 @@ export const Wrapper = styled.div`
   }
   .modal-create {
     position: absolute;
-    right: 8px;
+    right: 2rem;
     margin-top: 2px
   }
   .search-bar {
     position: absolute;
-    left: 8px;
-    margin-top: 2px
+    left: 1rem;
+    margin-top: 1rem;
+  }
+  .slick-list {
+    margin-top: -2vh;
+  }
+  .slick-arrow {
+    display: none !important;
   }
 `;

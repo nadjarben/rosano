@@ -145,7 +145,7 @@ const ModalModify = ({ product }) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {'Modify the product'}
+          {'Create product'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

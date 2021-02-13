@@ -2,7 +2,7 @@
   "short_name": "Rosano's",
   "name": "Rosano City Market",
   "theme_color": "black",
-  "background_color": "black",
+  "background_color": "white",
   "display": "standalone",
   "start_url": ".", 
   "icons": [

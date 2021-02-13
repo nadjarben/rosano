@@ -9,6 +9,11 @@ import LogoSpinner from '../LogoSpinner'
 import ModalCreateProduct from '../ModalCreateProduct'
 import SearchBar from '../SearchBar'
 import { Wrapper } from './style'
+import Slider from "react-slick";
+
+import beer from '../../assets/caroussel/beer.jpg'
+import whiskey from '../../assets/caroussel/whiskey.jpg'
+import vodka from '../../assets/caroussel/vodka.webp'
 
 const Products = () => {
   const { t } = useTranslation()
@@ -23,20 +28,43 @@ const Products = () => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  const settings = {
+    autoplay: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    vertical: true,
+  };
+
   return (
     <>
       {searchBar === '' ? (
         !isLoading ? (
           <Wrapper>
             <div style={{ display: 'flex' }}>
-              <h1>{capitalizeFirstLetter(t(category))}</h1>
+            <div className="search-bar">
+              <SearchBar />
+            </div>
+              <h1 style={{ fontSize: '25px' }}>{capitalizeFirstLetter(t(category))}</h1>
               <div className="modal-create">
                 <ModalCreateProduct />
               </div>
               <div className="search-bar">
-                <SearchBar />
               </div>
             </div>
+            <Slider {...settings}>
+              <div>
+                <img src={beer} alt='beer' width='100%' height='250px' />
+              </div>
+              <div>
+                <img src={whiskey} alt='whiskey' width='100%' height='250px' />
+              </div>
+              <div>
+                <img src={vodka} alt='voska' width='100%' height='250px' />
+              </div>
+            </Slider>
             <Container>
               <Grid container justify="center" spacing={2}>
                 {products
@@ -86,22 +114,22 @@ const Products = () => {
                   product.titleEn
                     .toLowerCase()
                     .includes(searchBar.toLowerCase())
-                    ||
-                    product.titleFr
-                      .toLowerCase()
-                      .includes(searchBar.toLowerCase())
-                      ||
-                    product.titleEn
-                      .toLowerCase()
-                      .includes(searchBar.toLowerCase())
-                      ||
-                    product.category
-                      .toLowerCase()
-                      .includes(searchBar.toLowerCase())
-                      ||
-                    product.brand
-                      .toLowerCase()
-                      .includes(searchBar.toLowerCase())
+                  ||
+                  product.titleFr
+                    .toLowerCase()
+                    .includes(searchBar.toLowerCase())
+                  ||
+                  product.titleEn
+                    .toLowerCase()
+                    .includes(searchBar.toLowerCase())
+                  ||
+                  product.category
+                    .toLowerCase()
+                    .includes(searchBar.toLowerCase())
+                  ||
+                  product.brand
+                    .toLowerCase()
+                    .includes(searchBar.toLowerCase())
                 )
                 .map((product) => {
                   return (
