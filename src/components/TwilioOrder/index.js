@@ -59,8 +59,8 @@ const TwilioOrder = () => {
         </Button>
       ) : (
         <Button
-          style={{ fontSize: '15px' }}
-          variant="outlined"
+        style={{ fontSize: '17px' }}
+        variant="outlined"
           onClick={handleOrderRequest}
           color="primary"
         >

@@ -26,7 +26,7 @@ export const TabStyled = styled(Tab)`
   color: black !important;
   font-size: 18px !important;
   color: black !important;
-  font-family: "Arimo", sans-serif;
+  font-family: 'Suez One', serif;  
   font-weight: bold !important;
 `;
 

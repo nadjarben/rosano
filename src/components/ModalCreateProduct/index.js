@@ -13,6 +13,9 @@ import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
+import { useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 
 const categories = [
   'package',
@@ -39,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ModalModify = ({ product }) => {
   const { t } = useTranslation()
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const dispatch = useDispatch()
   const classes = useStyles()
   const adminMode = useSelector((state) => state.app.adminMode)
@@ -135,6 +140,7 @@ const ModalModify = ({ product }) => {
       <Dialog
         open={open}
         onClose={handleClose}
+        fullScreen={fullScreen}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -179,7 +185,6 @@ const ModalModify = ({ product }) => {
                 id="combo-box-demo"
                 options={categories}
                 getOptionLabel={(option) => option}
-                style={{ width: 300 }}
                 defaultValue={newProduct.category}
                 renderInput={(params) => (
                   <TextField

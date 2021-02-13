@@ -1,44 +1,43 @@
 import styled from "styled-components";
 import bar from "../../assets/bar2.jpg";
 
+const url = "https://st.depositphotos.com/3008028/3749/i/950/depositphotos_37493071-stock-photo-abstract-grey-background.jpg"
+
 export const Background = styled.div`
-  background-image: url(${bar}) !important;
+  /* background-image: url(${bar}) !important;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  color: white;
-  font-weight: bold;
+  background-position: center center; */
+  background-image: url(${url}) !important;
+  color: black;
+  /* font-weight: bold; */
   font-size: 20px;
 
   .Product__option {
-    font-family: "Arimo", sans-serif;
-    color: white;
+    font-family: 'Bellefair', serif;
     text-align: center;
   }
   .product-info {
-    font-family: "Arimo", sans-serif;
+    font-family: 'Bellefair', serif;
     font-weight: bold;
-    color: white;
-    text-align: "center";
+    text-align: center;
     font-size: 14px;
   }
   .product-price {
-    font-family: "Arimo", sans-serif;
+    font-family: 'Bellefair', serif;
     font-weight: bold;
-    color: white;
-    text-align: "center";
+    text-align: center;
     font-size: 16px;
   }
   .add-btn {
-    color: white;
-    border-color: white;
-    font-size: 13px;
+    border-color: black;
+    font-size: 15px;
     font-weight: bold;
   }
 `;
 
 export const InputStyled = styled.input`
-  font-family: "Arimo", sans-serif;
+font-family: 'Bellefair', serif;
   font-size: 16px;
   text-align: center !important;
 `;
