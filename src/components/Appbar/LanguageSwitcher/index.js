@@ -93,14 +93,14 @@ const LocaleSwitcher = ({ t, lang, toggleCollapse }) => {
         onClick={handleClick}
       >
         {i18n.language === 'en' && (
-          <img src={flagen} alt="flagen" width="30px" />
+          <img src={flagen} alt="flagen" width="25px" />
         )}
 
         {i18n.language === 'fr' && (
-          <img src={flagfr} alt="flagfr" width="30px" />
+          <img src={flagfr} alt="flagfr" width="25px"/>
         )}
         {i18n.language === 'he' && (
-          <img src={flaghe} alt="flagen" width="30px" />
+          <img src={flaghe} alt="flagen" width="25px" />
         )}
       </Button>
       <StyledMenu

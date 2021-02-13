@@ -1,6 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
+import { useSelector,
+  // useDispatch 
+} from 'react-redux'
+// import { changeCategory } from '../../store/actions/app'
 import Backdrop from '@material-ui/core/Backdrop'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
@@ -17,6 +20,7 @@ import vodka from '../../assets/caroussel/vodka.webp'
 
 const Products = () => {
   const { t } = useTranslation()
+  // const dispatch = useDispatch();
 
   const products = useSelector((state) => state.product.products)
   const category = useSelector((state) => state.app.category)
@@ -27,6 +31,10 @@ const Products = () => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
+
+  // const handleCategory = (toto) => {
+  //   dispatch(changeCategory(toto))
+  // }
 
   const settings = {
     autoplay: true,
@@ -61,7 +69,7 @@ const Products = () => {
                   <img src={beer} alt='beer' width='100%' height='250px' />
                 </div>
                 <div>
-                  <img src={vodka} alt='voska' width='100%' height='250px' />
+                  <img src={vodka} alt='vodka' width='100%' height='250px' />
                 </div>
               </Slider>
             </div>

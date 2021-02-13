@@ -10,15 +10,11 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import { useTheme } from '@material-ui/core/styles'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 export default function FormDialog() {
   const dispatch = useDispatch()
-  const theme = useTheme()
   const open = useSelector((state) => state.app.modalAdmin)
   const [value, setValue] = React.useState('')
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
 
   const handleClose = () => {
     dispatch(toggleModalAdmin())
@@ -39,7 +35,6 @@ export default function FormDialog() {
     <div>
       <Dialog
         open={open}
-        fullScreen={fullScreen}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >

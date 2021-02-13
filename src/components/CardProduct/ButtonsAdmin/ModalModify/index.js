@@ -27,6 +27,7 @@ const categories = [
   'gin',
   'snack',
   'soft drink',
+  'tobacco'
 ]
 const useStyles = makeStyles((theme) => ({
   root: {

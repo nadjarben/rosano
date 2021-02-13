@@ -67,6 +67,7 @@ export default function ScrollableTabsButtonAuto() {
           <TabStyled label={t("gin")} value="gin" />
           <TabStyled label={t("snack")} value="snack" />
           <TabStyled label={t("soft drink")} value="soft drink" />
+          <TabStyled label={t("tobacco")} value="tobacco" />
         </TabsStyled>
       </AppBarStyled>
     </>

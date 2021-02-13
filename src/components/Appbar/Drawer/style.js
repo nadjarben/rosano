@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 export const Wrapper = styled.div`
   font-family: 'Bellefair', serif;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 22px;
   background-color: rgb(25, 25, 25);
   font-weight: bold;
 `
@@ -14,8 +14,8 @@ export const DrawerTitle = styled.h2`
     text-transform: uppercase;
     justify-content: center !important;
     text-align: center !important;
-    padding-top: 3.5vh;
-    padding-bottom: 3vh;
+    padding-top: 5.5vh;
+    padding-bottom: 5vh;
 `
 
 export const ListItemStyled = styled(ListItem)`
@@ -23,6 +23,7 @@ export const ListItemStyled = styled(ListItem)`
   h4 {
     font-weight: bold;
     text-transform: capitalize;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
   }
 `

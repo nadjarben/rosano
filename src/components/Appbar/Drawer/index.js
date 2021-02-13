@@ -27,8 +27,8 @@ export default function SwipeableTemporaryDrawer({ isDrawer, toggleDrawer }) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const handleCategory = (toto) => {
-    dispatch(changeCategory(toto))
+  const handleCategory = (category) => {
+    dispatch(changeCategory(category))
   }
 
 
@@ -41,42 +41,45 @@ export default function SwipeableTemporaryDrawer({ isDrawer, toggleDrawer }) {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <Divider />
       <List>
         <ListItemStyled button onClick={() => handleCategory('package')}>
           <h4 style={{ textAlign: 'center' }}>{t("package")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('beer')}>
           <h4 style={{ textAlign: 'center' }}>{t("beer")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled utton onClick={() => handleCategory('vodka')}>
           <h4>{t("vodka")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('whiskey')}>
           <h4 style={{ textAlign: 'center' }}>{t("whiskey")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('rhum')}>
           <h4 style={{ textAlign: 'center' }}>{t("rhum")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('arak')}>
           <h4 style={{ textAlign: 'center' }}>{t("arak")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('gin')}>
           <h4 style={{ textAlign: 'center' }}>{t("gin")}</h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('soft drink')}>
           <h4 style={{ textAlign: 'center' }}>{t("soft drink")} </h4>
         </ListItemStyled>
-        <Divider variant="middle" />
+        <Divider variant="middle" style={{background: 'white'}} />
         <ListItemStyled button onClick={() => handleCategory('snack')}>
           <h4 style={{ textAlign: 'center' }}>{t("snack")}</h4>
+        </ListItemStyled>
+        <Divider variant="middle" style={{background: 'white'}} />
+        <ListItemStyled button onClick={() => handleCategory('tobacco')}>
+          <h4 style={{ textAlign: 'center' }}>{t("tobacco")}</h4>
         </ListItemStyled>
       </List>
     </div>
@@ -92,8 +95,15 @@ export default function SwipeableTemporaryDrawer({ isDrawer, toggleDrawer }) {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           >
+            <div style={{
+              background: 'rgb(25, 25, 25)',
+              minHeight: '100vh',
+              color: 'white'
+            }}>
+                          <Divider style={{background: 'white'}} />
             <DrawerTitle>{t("menu")}</DrawerTitle>
             {list(anchor)}
+            </div>
           </SwipeableDrawer>
         </React.Fragment>
       ))}
