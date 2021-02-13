@@ -1,19 +1,14 @@
 import styled from "styled-components";
-import bar from "../../assets/bar2.jpg";
 
 export const Background = styled.div`
-  /* background-image: url(${bar}) !important;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; */
+  background-position: center center;
   background-image: url(${props => props.bg}) !important;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   color: black;
-  /* font-weight: bold; */
+  font-weight: bold;
   font-size: 20px;
+  min-height: 100vh;
 
   .Product__option {
     font-family: 'Bellefair', serif;

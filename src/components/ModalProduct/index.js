@@ -15,6 +15,9 @@ import Typography from '@material-ui/core/Typography'
 import { ImageStyled, Background } from './style'
 import CardProduct from '../CardProduct'
 import logo from '../../assets/logo.png'
+import { useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 
 const styles = (theme) => ({
   root: {
@@ -81,6 +84,8 @@ const DialogActions = withStyles((theme) => ({
 
 const ModalProduct = (props) => {
   const { t } = useTranslation()
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const dispatch = useDispatch()
   const language = useSelector((state) => state.app.language)
   const [open, setOpen] = React.useState(false)
@@ -114,14 +119,9 @@ const ModalProduct = (props) => {
       </div>
       <Dialog
         onClose={handleClose}
+        fullScreen={fullScreen}
         aria-labelledby="customized-dialog-title"
         open={open}
-        BackdropProps={{
-          style: {
-            backgroundColor: 'white',
-            opacity: '0.9',
-          },
-        }}
       >
         <Background bg={whichBg}>
           <DialogTitle
@@ -136,7 +136,7 @@ const ModalProduct = (props) => {
             {language === 'fr' && props.product.titleFr}
             {language === 'en' && props.product.titleEn}
           </DialogTitle>
-          <DialogContent dividers>
+          <DialogContent dividers style={{ minHeight: '70vh' }}>
             {props.product.image ? (
               <ImageStyled
                 src={props.product.image}
@@ -158,19 +158,7 @@ const ModalProduct = (props) => {
               {language === 'en' && props.product.descriptionEn}
             </Typography>
           </DialogContent>
-          {/*<DialogActionsStyled>
-            <label className="Product__option">
-              {t('Quantity')}{' '}
-              <InputStyled
-                className="form-control"
-                min="1"
-                type="number"
-                defaultValue={1}
-              />
-            </label>
-          </DialogActionsStyled>
-          */}
-          <DialogActions style={{ display: 'flex'}}>
+          <DialogActions>
           <Typography
               className="product-price"
             >
