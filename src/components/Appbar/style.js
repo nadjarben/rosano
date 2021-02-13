@@ -7,21 +7,16 @@ font-family: 'Bellefair', serif;
   text-transform: uppercase;
   font-size: 18px;
   background-color: rgb(25, 25, 25);
+  display: flex;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  width: 100%;
 
-  .navbar-toggler:focus {
-    outline: 1px black;
-  }
-
-  .logo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 250px;
-    padding: 15px;
-  }
 
   .shopping-cart {
     position: absolute;
-    right: 80px;
+    right: 100px;
     top: 39px;
     z-index: 1000;
     cursor: pointer;
@@ -41,10 +36,10 @@ export const MDBCollapseStyled = styled(MDBCollapse)`
 `
 
 export const LanguageWrapper = styled.div`
+  display: flex;
+  text-align: right;
   position: absolute;
-  top: 2px;
-  right: 2px;
-  z-index: 100;
+  right: 1.5rem;
 `
 
 const bounceAnimation = keyframes`${zoomInUp}`

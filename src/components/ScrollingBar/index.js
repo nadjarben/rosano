@@ -5,7 +5,7 @@ import { changeCategory, resetSearchBar } from '../../store/actions/app'
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { RollInDiv, AppBarStyled, TabsStyled, TabStyled } from "./style";
+import { AppBarStyled, TabsStyled, TabStyled } from "./style";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,7 +48,7 @@ export default function ScrollableTabsButtonAuto() {
   }, [value])
 
   return (
-    <RollInDiv>
+    <>
       <AppBarStyled position="static" color="default">
         <TabsStyled
           value={value}
@@ -69,6 +69,6 @@ export default function ScrollableTabsButtonAuto() {
           <TabStyled label={t("soft drink")} value="soft drink" />
         </TabsStyled>
       </AppBarStyled>
-    </RollInDiv>
+    </>
   );
 }

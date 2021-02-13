@@ -2,12 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProducts } from '../store/actions/product'
 import { toggleCart, toggleModalAdmin } from '../store/actions/app'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Cart from '../components/shopify/Cart'
-
 import HomePage from '../app/HomePage'
-import Contact from '../app/Contact'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Appbar'
 import LogoSpinner from '../components/LogoSpinner'
 import Footer from '../components/Footer'
 import ModalAdmin from '../components/ModalAdmin'
@@ -28,22 +25,17 @@ const App = () => {
   return (
     <React.Suspense fallback={<LogoSpinner />}>
       <StyleProvider>
-      <ThemeProvider theme={theme}>
-        <Router>
-        <Navbar />
-          <Cart />
-          <ModalAdmin />
-          <Switch>
+        <ThemeProvider theme={theme}>
+            <Navbar />
+            <Cart />
+            <ModalAdmin />
             <Wrapper onClick={() => cartOpen && dispatch(toggleCart())}>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/contact" component={Contact} />
+              <HomePage />
             </Wrapper>
-          </Switch>
-          <div onDoubleClick={() => dispatch(toggleModalAdmin())}>
-          <Footer />
-          </div>
-        </Router>
-      </ThemeProvider>
+            <div onDoubleClick={() => dispatch(toggleModalAdmin())}>
+              <Footer />
+            </div>
+        </ThemeProvider>
       </StyleProvider>
     </React.Suspense>
   )

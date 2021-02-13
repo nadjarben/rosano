@@ -98,11 +98,15 @@ export default function ResponsiveDialog() {
             </Button>
             )}
             {page !== 1 ? (
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={handleClose} color="primary"
+                style={{ fontSize: '17px' }}
+                >
                 {t('Close')}
               </Button>
             ) : (
-              <Button onClick={() => setPage(page - 1)} color="primary">
+              <Button onClick={() => setPage(page - 1)} color="primary"
+              style={{ fontSize: '17px' }}
+              >
               {t('Previous')}
             </Button>            )}
           </DialogActionsStyled>
@@ -113,11 +117,15 @@ export default function ResponsiveDialog() {
         (
           <DialogActionsStyled>
             {page !== 0 ? (
-              <Button onClick={() => setPage(page - 1)} color="primary">
+              <Button 
+              style={{ fontSize: '17px' }}
+              onClick={() => setPage(page - 1)} color="primary">
                 {t('Previous')}
               </Button>
             ) : (
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={handleClose} color="primary"
+              style={{ fontSize: '17px' }}
+              >
                 {t('Close')}
               </Button>
             )}

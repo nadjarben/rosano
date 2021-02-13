@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  font-family: "Arimo", sans-serif;
+font-family: 'Bellefair', serif;
 
   div {
     background-color: ${props => props.bg};

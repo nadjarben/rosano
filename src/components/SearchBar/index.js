@@ -1,9 +1,8 @@
 import React from 'react'
-import { searchBarResult, resetSearchBar } from '../../store/actions/app'
+import { searchBarResult } from '../../store/actions/app'
 import { useDispatch, useSelector } from 'react-redux'
 import { fade, makeStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
-import ClearIcon from '@material-ui/icons/Clear'
 import InputBase from '@material-ui/core/InputBase'
 
 const SearchBar = () => {
@@ -14,10 +13,6 @@ const SearchBar = () => {
     display: toggleSearchBar,
   })
 
-  const handleReset = () => {
-    setValue({ display: false, searchTyped: '' })
-    dispatch(resetSearchBar())
-  }
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -108,13 +103,6 @@ const SearchBar = () => {
           />
         </div>
       </div>
-      {value.display && (
-      <ClearIcon
-            style={{position: 'absolute', top: '8px', right: 0}}
-              onClick={handleReset}
-            />
-            )}
-
     </div>
   )
 }

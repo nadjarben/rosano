@@ -7,12 +7,14 @@ import Dialog from '@material-ui/core/Dialog'
 import MuiDialogTitle from '@material-ui/core/DialogTitle'
 import MuiDialogContent from '@material-ui/core/DialogContent'
 import MuiDialogActions from '@material-ui/core/DialogActions'
+import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 import Typography from '@material-ui/core/Typography'
 import { ImageStyled, Background } from './style'
 import CardProduct from '../CardProduct'
+import logo from '../../assets/logo.png'
 
 const styles = (theme) => ({
   root: {
@@ -38,6 +40,8 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <img src={logo} alt='logo' width='100%' />
+      <Divider style={{color: 'white', background: 'white', height: '3px'}} />
       <Typography className={classes.title} variant="h6">
         {children}
       </Typography>

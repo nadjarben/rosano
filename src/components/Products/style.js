@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     padding: 15px;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: "Arimo", sans-serif;
+    font-family: 'Bellefair', serif;
     font-size: 18px;
     letter-spacing: 0.02857em;
     font-weight: bold;
