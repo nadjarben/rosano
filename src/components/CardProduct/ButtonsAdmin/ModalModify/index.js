@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const ModalModify = ({ product }) => {
   const { t } = useTranslation()
   const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xl'))
   const dispatch = useDispatch()
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -122,7 +122,7 @@ const ModalModify = ({ product }) => {
         aria-describedby="alert-dialog-description"
         fullScreen={fullScreen}
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center' }}>
           {'Modify the product'}
         </DialogTitle>
         <DialogContent>
@@ -280,6 +280,7 @@ const ModalModify = ({ product }) => {
                       onClick={() =>
                         setNewProduct({ ...newProduct, image: undefined })
                       }
+                      style={{ fontSize: '18px' }}
                     >
                       {t('Remove product image')}
                     </Button>
@@ -291,12 +292,15 @@ const ModalModify = ({ product }) => {
         </DialogContent>
         <DialogActions>
           <Button
+            style={{ fontSize: '18px' }}
             onClick={() => handleUpdate(newProduct.id, newProduct)}
             color="secondary"
           >
             Confirm
           </Button>
-          <Button onClick={handleClose} color="secondary">
+          <Button
+            style={{ fontSize: '18px' }}
+            onClick={handleClose} color="secondary">
             Cancel
           </Button>
         </DialogActions>

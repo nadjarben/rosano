@@ -1,4 +1,4 @@
-import { CHANGE_CATEGORY, TOGGLE_CART, CHANGE_LANGUAGE, ACTIVE_ADMIN_MODE, TOGGLE_MODAL_ADMIN, SEARCH_BAR_RESULT, RESET_SEARCH_BAR } from './types'
+import { CHANGE_CATEGORY, TOGGLE_CART, CHANGE_LANGUAGE, TOGGLE_MODAL_ADMIN, SEARCH_BAR_RESULT, RESET_SEARCH_BAR } from './types'
 
 export const changeCategory = (category) => async (dispatch) => {
   dispatch({
@@ -16,10 +16,6 @@ export const changeLanguage = (language) => async (dispatch) => {
 
 export const toggleCart = () => ({
   type: TOGGLE_CART,
-})
-
-export const activeAdminMode = () => ({
-  type: ACTIVE_ADMIN_MODE,
 })
 
 export const toggleModalAdmin = () => ({

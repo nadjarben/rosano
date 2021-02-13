@@ -8,13 +8,13 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { DialogContentStyled } from './style'
 
 
 const categories = [
@@ -43,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
 const ModalModify = ({ product }) => {
   const { t } = useTranslation()
   const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xl'))
   const dispatch = useDispatch()
   const classes = useStyles()
-  const adminMode = useSelector((state) => state.app.adminMode)
+  const adminMode = useSelector((state) => state.admin.adminMode)
   const lang = useSelector((state) => state.app.language)
   const [open, setOpen] = React.useState(false)
   const [loading, setLoading] = React.useState(false)
@@ -144,10 +144,10 @@ const ModalModify = ({ product }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center' }}>
           {'Create product'}
         </DialogTitle>
-        <DialogContent>
+        <DialogContentStyled>
           <DialogContentText id="alert-dialog-description">
             <form className={classes.root} autoComplete="off">
               <TextField
@@ -188,7 +188,7 @@ const ModalModify = ({ product }) => {
                 defaultValue={newProduct.category}
                 renderInput={(params) => (
                   <TextField
-                  dir={lang === 'he' ? 'rtl' : 'ltr'}
+                    dir={lang === 'he' ? 'rtl' : 'ltr'}
                     required
                     {...params}
                     label={t('Category')}
@@ -313,6 +313,7 @@ const ModalModify = ({ product }) => {
                       onClick={() =>
                         setNewProduct({ ...newProduct, image: undefined })
                       }
+                      style={{ fontSize: '18px' }}
                     >
                       {t('Remove product image')}
                     </Button>
@@ -321,16 +322,19 @@ const ModalModify = ({ product }) => {
               </div>
             </form>
           </DialogContentText>
-        </DialogContent>
+        </DialogContentStyled>
         <DialogActions>
           <Button
             onClick={() => handleUpdate(newProduct)}
             color="secondary"
             disabled={isDisabled}
+            style={{ fontSize: '18px' }}
           >
             Confirm
           </Button>
-          <Button onClick={handleClose} color="secondary">
+          <Button onClick={handleClose} color="secondary"
+            style={{ fontSize: '18px' }}
+          >
             Cancel
           </Button>
         </DialogActions>

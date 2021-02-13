@@ -12,4 +12,7 @@ export const LogoStyled = styled.img`
     bottom: 0;
     /* animation: rotation 2s infinite linear;
     @keyframes rotation { */
+      @media (min-width: 600px) {
+    width: 50%;
+  }
 `;

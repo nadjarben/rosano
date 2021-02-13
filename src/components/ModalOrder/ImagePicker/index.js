@@ -46,6 +46,7 @@ const ImagePicker = ({ client, setClient }) => {
             variant="contained"
             color="secondary"
             onClick={() => setImage('')}
+            style={{ fontSize: '17px' }}
           >
             {t('Remove Tehuda Zeut')}
           </Button>

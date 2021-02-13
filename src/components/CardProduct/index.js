@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import { Wrapper } from './style'
 
 const CardProduct = (props) => {
-  const adminMode = useSelector((state) => state.app.adminMode)
+  const adminMode = useSelector((state) => state.admin.adminMode)
   const language = useSelector((state) => state.app.language)
   return (
         <Wrapper

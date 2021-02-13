@@ -21,7 +21,7 @@ const Products = () => {
   const products = useSelector((state) => state.product.products)
   const category = useSelector((state) => state.app.category)
   const isLoading = useSelector((state) => state.product.isLoading)
-  const adminMode = useSelector((state) => state.app.adminMode)
+  const adminMode = useSelector((state) => state.admin.adminMode)
   const searchBar = useSelector((state) => state.app.searchBar)
 
   const capitalizeFirstLetter = (string) => {
@@ -39,31 +39,31 @@ const Products = () => {
   };
 
   return (
-    <>
+    <Wrapper>
+      <div className="search-bar">
+        <SearchBar />
+      </div>
       {searchBar === '' ? (
         !isLoading ? (
-          <Wrapper>
-            <div style={{ display: 'flex' }}>
-            <div className="search-bar">
-              <SearchBar />
-            </div>
+          <>
+            <div className='info-bar'>
               <h1 style={{ fontSize: '25px' }}>{capitalizeFirstLetter(t(category))}</h1>
               <div className="modal-create">
                 <ModalCreateProduct />
               </div>
             </div>
             <div className='caroussel'>
-            <Slider {...settings}>
-              <div>
-                <img src={beer} alt='beer' width='100%' height='250px' />
-              </div>
-              <div>
-                <img src={whiskey} alt='whiskey' width='100%' height='250px' />
-              </div>
-              <div>
-                <img src={vodka} alt='voska' width='100%' height='250px' />
-              </div>
-            </Slider>
+              <Slider {...settings}>
+                <div>
+                  <img src={whiskey} alt='whiskey' width='100%' height='250px' />
+                </div>
+                <div>
+                  <img src={beer} alt='beer' width='100%' height='250px' />
+                </div>
+                <div>
+                  <img src={vodka} alt='voska' width='100%' height='250px' />
+                </div>
+              </Slider>
             </div>
             <Container>
               <Grid container justify="center" spacing={2}>
@@ -89,23 +89,20 @@ const Products = () => {
                   })}
               </Grid>
             </Container>
-          </Wrapper>
+          </>
         ) : (
           <Backdrop open={true} style={{ backgroundColor: 'transparent' }}>
             <LogoSpinner />
           </Backdrop>
         )
       ) : !isLoading ? (
-        <Wrapper>
-          <div style={{ display: 'flex' }}>
-            <h1>{capitalizeFirstLetter(t(searchBar))}</h1>
-            <div className="modal-create">
-              <ModalCreateProduct />
+        <>
+          <div className='info-bar'>
+          <h1>{capitalizeFirstLetter(t(searchBar))}</h1>
+              <div className="modal-create">
+                <ModalCreateProduct />
+              </div>
             </div>
-            <div className="search-bar">
-              <SearchBar />
-            </div>
-          </div>
           <Container>
             <Grid container justify="center" spacing={2}>
               {products
@@ -150,13 +147,13 @@ const Products = () => {
                 })}
             </Grid>
           </Container>
-        </Wrapper>
+        </>
       ) : (
         <Backdrop open={true} style={{ backgroundColor: 'transparent' }}>
           <LogoSpinner />
         </Backdrop>
       )}
-    </>
+    </Wrapper>
   )
 }
 

@@ -2,7 +2,6 @@ import {
   CHANGE_CATEGORY,
   TOGGLE_CART,
   CHANGE_LANGUAGE,
-  ACTIVE_ADMIN_MODE,
   TOGGLE_MODAL_ADMIN,
   SEARCH_BAR_RESULT,
   RESET_SEARCH_BAR,
@@ -14,7 +13,6 @@ export const initialState = {
   toggleSearchBar: false,
   cartOpen: false,
   language: '',
-  adminMode: false,
   modalAdmin: false,
 }
 
@@ -34,11 +32,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         cartOpen: !state.cartOpen,
-      }
-    case ACTIVE_ADMIN_MODE:
-      return {
-        ...state,
-        adminMode: !state.adminMode,
       }
     case TOGGLE_MODAL_ADMIN:
       return {

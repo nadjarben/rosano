@@ -63,7 +63,7 @@ const SearchBar = () => {
       [theme.breakpoints.up('sm')]: {
         width: '12ch',
         '&:focus': {
-          width: '23ch',
+          width: '25ch',
         },
       },
     },
@@ -86,9 +86,8 @@ const SearchBar = () => {
         <div className={classes.searchIcon}>
           <SearchIcon />
         </div>
-        <div style={{ display: 'flex' }}>
           <InputBase
-            autoComplet="off"
+            autoComplete="off"
             value={value.searchTyped}
             dir={lang === 'he' ? 'rtl' : 'ltr'}
             classes={{
@@ -100,7 +99,6 @@ const SearchBar = () => {
             }
             inputProps={{ 'aria-label': 'search' }}
           />
-        </div>
       </div>
     </div>
   )

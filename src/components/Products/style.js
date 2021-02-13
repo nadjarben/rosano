@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
  h1 {
-    background-color: rgb(25, 25, 25);
     color: white;
     padding: 15px;
     text-transform: uppercase;
@@ -15,9 +14,11 @@ export const Wrapper = styled.div`
     width: 100%;
   }
   .modal-create {
-    position: absolute;
-    right: 2rem;
-    margin-top: 2px
+    margin-top: 0.5rem;
+  }
+  .info-bar {
+    display: flex;
+    background-color: rgb(25, 25, 25);
   }
   .search-bar {
     position: absolute;
@@ -34,5 +35,8 @@ export const Wrapper = styled.div`
   }
   .slick-arrow {
     display: none !important;
+  }
+  .slick-track {
+    height: unset !important;
   }
 `;
