@@ -111,11 +111,7 @@ const ModalProduct = (props) => {
           },
         }}
       >
-        <Background bg={
-          category === 'vodka' && "https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg"
-          || category === 'whiskey' && "https://ak.picdn.net/shutterstock/videos/6043583/thumb/1.jpg"
-          || category === 'beer' && "https://i.pinimg.com/236x/db/7f/c2/db7fc263c7ff27035979a51498577d8a--beer.jpg"
-        }>
+        <Background bg={'https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg'}>
           <DialogTitle
             onClose={() => setOpen(false)}
             style={{
