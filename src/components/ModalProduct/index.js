@@ -83,7 +83,6 @@ const ModalProduct = (props) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const language = useSelector((state) => state.app.language)
-  const category = useSelector((state) => state.app.category)
   const [open, setOpen] = React.useState(false)
 
   const handleClose = () => {
@@ -93,6 +92,19 @@ const ModalProduct = (props) => {
   const addProductToCart = () => {
     dispatch(addItem(props.product))
     setOpen(false)
+  }
+
+  const whichBg = () => {
+    if(props.product.category === 'beer') {
+      return 'https://i.pinimg.com/236x/db/7f/c2/db7fc263c7ff27035979a51498577d8a--beer.jpg'
+    }
+    if(props.product.category === 'whiskey') {
+      return 'https://ak.picdn.net/shutterstock/videos/6043583/thumb/1.jpg'
+    }
+    if(props.product.category === 'vodka') {
+      return 'https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg'
+    }
+    else return 'https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg'
   }
 
   return (
@@ -111,7 +123,7 @@ const ModalProduct = (props) => {
           },
         }}
       >
-        <Background bg={'https://c1.wallpaperflare.com/preview/90/364/860/pattern-winter-cold-ice.jpg'}>
+        <Background bg={whichBg}>
           <DialogTitle
             onClose={() => setOpen(false)}
             style={{
