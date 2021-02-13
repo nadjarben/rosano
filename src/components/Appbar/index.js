@@ -30,7 +30,7 @@ export default function ButtonAppBar({ checkout }) {
 
   return (
     <Wrapper>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: 'rgb(25, 25, 25)'}}>
         <Toolbar>
           <IconButton size='medium' edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer('right', true)}>
             <MenuIcon style={{fontSize: '25px'}} />
