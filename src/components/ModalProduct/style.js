@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Dialog from '@material-ui/core/Dialog'
+import IconButton from '@material-ui/core/IconButton'
 
 export const DialogStyled = styled(Dialog)`
  .MuiPaper-root {
@@ -35,6 +36,14 @@ export const DialogStyled = styled(Dialog)`
     font-size: 17px;
     padding-right: 1rem;
   }
+`
+
+export const IconButtonStyled = styled(IconButton)`
+  position: absolute !important;
+  color: black !important;
+  font-size: 30px;
+  top: 1rem !important;
+  left: 1rem !important;
 `
 
 export const Background = styled.div`
