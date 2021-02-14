@@ -6,11 +6,10 @@ import { withStyles } from '@material-ui/core/styles'
 import MuiDialogTitle from '@material-ui/core/DialogTitle'
 import Divider from "@material-ui/core/Divider";
 import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
 import Container from '@material-ui/core/Container'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Typography from '@material-ui/core/Typography'
-import { ImageStyled, DialogStyled } from './style'
+import { ImageStyled, DialogStyled, IconButtonStyled } from './style'
 import MuiDialogActions from '@material-ui/core/DialogActions'
 import CardProduct from '../CardProduct'
 import logo from '../../assets/logo.png'
@@ -34,8 +33,6 @@ const styles = (theme) => ({
   closeButtonRight: {
     fontSize: '56px',
     position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
     color: 'black',
   },
   btn: {
@@ -53,13 +50,12 @@ const DialogTitle = withStyles(styles)((props) => {
         {children}
       </Typography>
       {onClose ? (
-        <IconButton
+        <IconButtonStyled
           aria-label="close"
-          className={classes.closeButtonRight}
           onClick={onClose}
         >
           <ArrowBackIosIcon fontSize="large" />
-        </IconButton>
+        </IconButtonStyled>
       ) : null}
     </MuiDialogTitle>
   )
