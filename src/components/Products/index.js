@@ -34,15 +34,6 @@ const Products = () => {
   //   dispatch(changeCategory(toto))
   // }
 
-  const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500
-  }
-
   return (
     <Wrapper>
       <div className="search-bar">
