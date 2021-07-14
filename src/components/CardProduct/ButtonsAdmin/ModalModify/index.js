@@ -15,20 +15,8 @@ import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import { useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { categories } from '../../../../utils/categories'
 
-
-const categories = [
-  'package',
-  'beer',
-  'vodka',
-  'whiskey',
-  'rhum',
-  'arak',
-  'gin',
-  'snack',
-  'soft drink',
-  'tobacco'
-]
 const useStyles = makeStyles((theme) => ({
   root: {
     justifyContent: 'center',

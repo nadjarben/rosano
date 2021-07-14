@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useSelector,
+import {
+  useSelector,
   // useDispatch 
 } from 'react-redux'
 // import { changeCategory } from '../../store/actions/app'
@@ -11,12 +12,9 @@ import ModalProduct from '../ModalProduct'
 import LogoSpinner from '../LogoSpinner'
 import ModalCreateProduct from '../ModalCreateProduct'
 import SearchBar from '../SearchBar'
+import Slider from '../Slider'
 import { Wrapper } from './style'
-import Slider from "react-slick";
 
-import beer from '../../assets/caroussel/beer.jpg'
-import whiskey from '../../assets/caroussel/whiskey.jpg'
-import vodka from '../../assets/caroussel/vodka.webp'
 
 const Products = () => {
   const { t } = useTranslation()
@@ -37,14 +35,13 @@ const Products = () => {
   // }
 
   const settings = {
-    autoplay: true,
-    fade: true,
+    className: "center",
+    centerMode: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    vertical: true,
-  };
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500
+  }
 
   return (
     <Wrapper>
@@ -60,19 +57,9 @@ const Products = () => {
                 <ModalCreateProduct />
               </div>
             </div>
-            <div className='caroussel'>
-              <Slider {...settings}>
-                <div>
-                  <img src={whiskey} alt='whiskey' width='100%' height='250px' />
-                </div>
-                <div>
-                  <img src={beer} alt='beer' width='100%' height='250px' />
-                </div>
-                <div>
-                  <img src={vodka} alt='vodka' width='100%' height='250px' />
-                </div>
-              </Slider>
-            </div>
+
+            <Slider />
+
             <Container>
               <Grid container justify="center" spacing={2}>
                 {products
@@ -106,11 +93,11 @@ const Products = () => {
       ) : !isLoading ? (
         <>
           <div className='info-bar'>
-          <h1>{capitalizeFirstLetter(t(searchBar))}</h1>
-              <div className="modal-create">
-                <ModalCreateProduct />
-              </div>
+            <h1>{capitalizeFirstLetter(t(searchBar))}</h1>
+            <div className="modal-create">
+              <ModalCreateProduct />
             </div>
+          </div>
           <Container>
             <Grid container justify="center" spacing={2}>
               {products

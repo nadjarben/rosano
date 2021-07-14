@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-font-family: 'Bellefair', serif;
+  font-family: 'Bellefair', serif;
 
   div {
     background-color: ${props => props.bg};
@@ -35,4 +35,9 @@ font-family: 'Bellefair', serif;
     margin-right: 5px;
     color: ${props => props.line};
   }
-}`
+
+  .MuiButtonBase-root {
+    height: 25rem !important;
+    width: 20rem;
+  }
+`
