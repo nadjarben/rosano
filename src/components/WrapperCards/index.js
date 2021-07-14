@@ -1,5 +1,5 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid'
+// import Grid from '@material-ui/core/Grid'
 import { Wrapper } from './style'
 import { categories } from '../../utils/categories'
 import ModalProduct from '../ModalProduct'
